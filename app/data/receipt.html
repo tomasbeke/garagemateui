@@ -1,0 +1,42 @@
+
+<div class="receipt view-content">
+ <section  class="section-bg">
+  <img src="app/theme/assets/logo.jpg"/>
+ </section>
+ <div class="reserve-info">
+ <div class="schedule-info-reservenum"  z-bind="reservenum"></div>
+
+ <div class="schedule-info info-section">
+ <div class="blue_bar"    z-bind="schedule.reserveDate"></div>
+ <div class="info-val operator-name"  z-bind="operator.name"></div>
+ <div class="info-val"  z-bind="facility.name"></div>
+ <div class="garage-info-address info-val" >{{facility.address==facility.name?'':facility.address}}</div>
+ <div class="schedule-info-times">
+ <span class="schedule-info-starttime info-val"  z-bind="schedule.reserveDateTime"  z-format="hh:nn tt" ></span> <span class="rightarrow">&hyphen;</span><span class="rightarrow2">&rtrif;</span>
+  <span class="schedule-info-endtime info-val"  z-format="hh:nn tt" z-bind="schedule.reserveDateTimeEnd"></span>
+ </div>
+ <div class="info-val-label">Duration</div>
+ <div class="schedule-info-duration info-val"  z-bind="schedule.actualDuration"></div>
+
+ <div class="timerview">
+
+ </div>
+ </div>
+<div class="user-reserve-info info-section">
+ <div class="blue_bar" style="background-color: #185799">PRICING</div>
+ <label>DURATION</label><span class="info-val" z-bind="schedule.actualDuration"></span>
+ <label>COST</label><span class="info-val" z-type="currency" z-bind="reservecost"></span>
+ <label>EXTRAS</label> <span class="info-val" z-type="currency" z-bind="pricing.extratotal"></span>
+ <label>PRESET TIP</label><span class="info-val" z-type="currency" z-bind="pricing.calctip"></span>
+ <label>PROMO/COUPON</label><span class="info-val" z-bindto="pricing.promocoupon"></span>
+
+ <div class="payment-info info-section">
+ <div class="blue_bar final-amount">
+ <span class="lbl">Total</span><span class="gold val currency-val" title="{{pricing.rateDescription}}" z-type="currency" z-bind="reserveprice"></span>
+ </div>
+
+ </div>
+
+ </div>
+</div>
+ </div>

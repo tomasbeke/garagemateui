@@ -1,0 +1,72 @@
+      {
+"appname":"parcmate",
+"db":{"name":"mydb","alias":"parcmate","fullpath":"/var/appdb/hsql/data/","uid":"SA","pw":"",index:1,
+"url":"jdbc:hsqldb:hsql://localhost/parcmate;ifexists=true;hsqldb.lock_file=false;sql.longvar_is_lob=true;"  ,
+"startup":"/var/appdb/hsql/runhsql.bat"},
+ theme:"theme-dark",
+
+"entity": {
+    "appuser": {"email": {"required": true},
+        "firstname": {"required": true},
+        "lastname": {"required": true},
+        "emailsenton": {"readOnly": true},
+        "floor_manager_id":{"primaryEntity":"appuser"},
+        "usertype": {"list": [
+            {"id": 4, "label": "Fund"},
+             {"id": 3, "label": "Facility Manager"},
+            {"id": 2, "label": "Operator Staff"},
+            {"id": 1, "label": "Admin"}
+        ]}
+    },
+    vehicle:{
+        vehicle_label:{label:"Label"},
+        isprimary:{label:"Is Primary Vehicle"},
+        vehicle_make:{label:"Make"},
+        vehicle_plate:{label:"Plate Number"},
+        vehicle_color:{label:"Color"},
+        vehicle_year:{label:"Year"},
+        vehicle_description:{label:"Description"}
+    },
+    "garage": {
+        "gstatus_id": {"list":[{id:1,label:"active"},{id:2,label:"not active"}]}
+      },
+    "facility_deal": {
+        created_by:{hidden:true},
+        created_on:{hidden:true}
+    } ,
+    "facility_payment": {
+        type:{list:[{id:1,label:"Credit card"},{id:2,label:"Cash"}]},
+        cc_number:{label:"Number"},
+        cc_expdate:{label:"Exp. Date"},
+        cc_zip:{label:"Zip Code"},
+        cc_pin:{label:"PIN"},
+        status:{list:[{id:1,label:"Paid"},{id:-1,label:"Not Paid"}]},
+        auth_code:{}
+    }
+    ,
+     "facility_reserve": {
+         member_id:{primaryEntity:"appuser"},
+        date_from:{label:"Date"},
+        time_from:{label:"Time"},
+        scheduled_duration:{label:"Duration"},
+        actual_duration:{label:"Actual Duration"},
+
+        created_by:{hidden:true},
+        created_on:{hidden:true}
+    } ,
+    "favlist": {defaultCriteria:"user_id=currentuser","locationkey":{uniq:true} } ,
+    "typ": {"list": [
+        {"id": 1, "label": "Favourite"},
+        {"id": 2, "label": "Recent"},
+        {"id": 3, "label": "Other"}
+    ]}
+},
+"email": {"id": "parcmate", "pwd": "parcmate2703", "host": "smtp.gmail.com", "port": "587", "fromAddress": "parcmate@gmail.com", "bcc": "parcmate@gmail.com"},
+"jsrepo": {"path": "D:/jsrepo", "list": [
+     {"name": "chance.js", "description": "Randomizer", "ns": "chance"}
+]},
+    dbupgradesw:{"favlist":["alter TABLE favlist add user_id int null","alter TABLE favlist add addedon date null"]
+
+    }
+
+}

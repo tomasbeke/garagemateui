@@ -1,0 +1,276 @@
+
+.garagecheckin{
+
+	&{ position: relative}
+	
+	.checkin-form section {
+	display: flex;
+	display: -webkit-flex;
+	flex-flow: row wrap;
+	-webkit-flex-flow: row wrap;
+	margin-bottom: 10px;
+	}
+
+	.checkin-form fieldset {
+	padding: 20px;
+	}
+	.checkin-form .checkin fieldset {
+	padding: 0 20px 20px;
+	}
+	.checkin-form fieldset.member,
+	.checkin-form h3:first-child {    text-align: left;
+	border-right: 1px solid #666;
+	margin-right: -10px;
+	}
+	.checkin-form fieldset.non-member {
+	padding-left: 30px;text-align: left;
+	}
+	.checkin-form .checkin .group,
+	.checkin-form .row,
+	.checkin-form .checkin .group .headers {
+	width: 100%;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	}
+	.checkin-form .checkin .group {
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	}
+	.checkin-form .checkin .group .headers {
+	flex: 1 100%;
+	background: #fff;
+	padding: 0;text-align: left;
+	}
+	.checkin-form h3,
+	.checkin-form legend {
+	font-size: 2.4rem;
+	font-weight: 900;
+	flex: 2 50%;
+	-webkit-flex: 2 50%;
+	padding: 0 20px;
+	}
+	.checkin-form legend {
+	display: none;
+	}
+	.checkin-form h3:last-child {
+	padding-left: 30px;
+	}
+	.checkin-form .checkin .group fieldset,
+	.checkin-form section.parking-vehicle-info > div {
+	flex: 2 50%;
+	-webkit-flex: 2 50%;
+	}
+	.checkin-form section.parking-vehicle-info .group > div,
+	.checkin-form .controls button:last-child {
+	margin-left: 10px;
+	}
+	.checkin-form section.parking-vehicle-info {
+	position: relative;
+	}
+	.checkin-form section.parking-vehicle-info .car-img {
+	float: right;
+	}
+	section.parking-vehicle-info .vehicle-info .row:nth-child(1) .select,
+	section.parking-vehicle-info .vehicle-info .row:nth-child(2) .select {
+	min-width: 50%;
+	}
+	section.parking-vehicle-info .vehicle-info .row:nth-child(3) .select,
+	section.parking-vehicle-info .vehicle-info .row:nth-child(4) .select {
+	min-width: 25%;
+	}
+	.checkin-form .controls {  margin-top: 10px;text-align: left;
+	}
+	.checkin-form .non-member button {
+	margin-left: 20px;
+	}
+	.checkin-form .bar-scan-img {
+	border: 1px solid #b3b3b3;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 5px;
+	}
+	.checkin-form .input {
+	display: inline-block;
+	box-shadow: 0 0 0 1px #b3b3b3;
+	margin-top: 1px;
+	vertical-align: top;
+	}
+	.checkin-form .parking-info .input {
+	min-width: 81%;
+	}
+	.checkin-form .parking-info .time-selection .input {
+	min-width: 25%;
+	}
+	.checkin-form input,
+	.checkin-form select ,.checkin-form span.val{
+	border: 0 none;
+	width: 100%;
+	font-size: 1.2rem;
+	color:#808285;
+	padding: 0 20px 0 30px;
+	height: 48px;
+	}
+	.checkin-form select {
+	-webkit-appearance: none;
+	appearance: none;
+	background: none;
+	}
+	.checkin-form input,.checkin-form span.val,
+	.checkin-form select,.checkin-form select option {
+	font-size: 3rem;
+	line-height: 48px;
+	color: #000;
+	font-weight: 700;
+	text-align: left;
+	}
+	.checkin-form .select {
+	background: url( "@{app-assets}/chevron-down.png" );
+	background-size: 12px 7px;
+	background-repeat: no-repeat;
+	background-position: 12px 22px;
+	position: relative;
+	}
+	.checkin-form label {
+	font-size: 1.2rem;
+	text-transform: capitalize;
+	min-width: 80px;
+	margin-right: 10px;
+	display: inline-block;
+	}
+	.checkin-form .non-member span,
+	.checkin-form .member span {
+	display: inline-block;
+	font-size: 2.4rem;
+	font-weight: 900;
+	margin: 0 15px;
+	}
+	.checkin-form .non-member .license-number {
+	width: 40%;
+	}
+	.checkin-form .member span {
+	font-weight: 300;
+	vertical-align: middle;
+	}
+	.checkin-form .member .member-name span {
+	margin-left: 0!important;
+	display: block;
+	font-size: 6rem;
+	font-weight: 900;
+	}
+	.checkin-form .member .member-name {
+	line-height: 1;
+	}
+	.checkin-form .member .input {
+	position: relative;
+	vertical-align: middle;
+	width: 50%;
+	}
+	.checkin-form .member .input button.search {
+	position: absolute;
+	height: 25px;
+	width: 25px;
+	display: block;
+	overflow: hidden;
+	text-indent: -9999rem;
+	margin: 0;
+	background: url( "@{app-assets}/search-tool.png" );
+	background-size: 25px 25px;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	right: 12px;
+	top: 12px;
+	opacity: .5;
+	cursor: pointer;
+	border: 0 none;
+	padding: 0;
+	}
+	.checkin-form .parking-info .timer > span {
+	vertical-align: top;
+	}
+	.checkin-form .parking-info .counter,
+	.checkin-form .parking-info .label {
+	padding: 0 20px;
+	height: 48px;
+	}
+	.checkin-form .parking-info .counter {
+	margin-right: 1px;
+	font-weight: 900;
+	font-size: 3rem;
+	}
+	.checkin-form .parking-info .meridiem {
+	font-weight: 300;
+	}
+	.checkin-form .parking-info .label {
+	font-size: 1.2rem;
+	line-height: 48px;
+	margin-right: 1px;
+	}
+	.checkin-form .parking-info .time-selection {
+	display: flex;
+	display: -webkit-flex;
+	-webkit-flex-flow: wrap;
+	}
+	.check-in-find-user,.check-in-find{border:none;}
+	.check-in-find-user-link{display:none;position:absolute;right:0;height:100%;top:0}
+	button{font-size: 2.4rem;}
+	.hasnocontent .checkin-form .check-in-info  { opacity:.4;}
+	.hasnocontent .checkin-form .check-in-info  .val { color:#eee !important;}
+	.check-in-find-options{position:absolute;right:0;text-align: right;top:-20px}
+  .searchcnt{position: absolute;left:0;text-align: left;top:-20px;font-size: .9rem !important;font-weight: 400 !important;}
+	.vehicle-widget-img{width:15rem;display:inline-block;position: relative;margin-left: 350px;margin-top:-120px;}
+	.vehicle-widget-img img{max-width:100%;height:auto}
+	.user-search{padding:0;width: 1rem !important; height: 1rem !important;}
+	.val-duration{font-family:'open sans';padding:0 5px;width:7rem;border:  1px solid #ccc;display: inline-block;}
+	.val-duration-type{padding:0 5px;width:10rem;border: 1px solid #ccc;display: inline-block;}
+	input[disabled],select[disabled]{color:#ccc}
+	/* Media Queries */
+	@media screen and (max-width: 768px) {
+	.checkin-form h3 {
+	display: none;
+	}
+	  .vehicle-widget-img{display: block;margin-left: 0;margin-top: 0;}
+	.checkin-form legend {
+	display: inline-block;
+	flex: 2 100%;
+	text-align: left;
+	}
+	
+	.checkin-form fieldset.member {
+	margin: 0;
+	border: 0 none;
+	}
+	.checkin-form .input {
+	margin: 10px 0;
+	width: 100%!important;
+	}
+	.checkin-form button.default  {
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+	margin: 10px 0 0 0!important;
+	}
+	.checkin-form fieldset.non-member {
+	padding: 0 20px 20px;
+	}
+	.checkin-form fieldset.non-member span {
+	display: none;
+	}
+	.checkin-form .checkin .group fieldset,
+	.checkin-form section.parking-vehicle-info > div {
+	flex: 2 100%;
+	-webkit-flex: 2 100%;
+	}
+	.checkin-form section.parking-vehicle-info .group > div {
+	margin: 10px 0 0 0;
+	}
+	.checkin-form .parking-info .time-selection,
+	.checkin-form .parking-info .timer {
+	width: 100%;
+	}
+	.checkin-form section h2 {
+	padding: 10px 20px;
+	}
+	}
+}

@@ -1,0 +1,20 @@
+
+
+.lookup-record {
+    & {display: block;position: relative;}
+    span{display: inline-block;margin: 0 0.313rem;color: #666;}
+    span span.no-content{font-weight: normal;color: #ff9089;margin: 0;text-align: center;min-width: 1.250rem;}
+    .rec-time_from{}
+    .rec-name span{font-weight: bold;color: #000000;}
+    .rec-firstname{}
+    .rec-lastname{margin-right: 0.938rem;}
+    .rec-slot{}
+    .rec-slot::before{content: "slot: ";color: #aaa;}
+    .rec-reserve_num{position: absolute;right: 0.625rem;top:0.188rem;font-size: .9rem;}
+    .rec-reserve_num::before{content: "# ";font-weight: normal;color: #999}
+    .rec-vehicle_plate,.rec-account_num{font-weight: normal;}
+    .rec-vehicle_plate::before{content: "plate# ";font-weight: normal;color: #999}
+    .rec-account_num::before{content: "account# ";font-weight: normal;color: #999}
+    span.rec-duration_type{margin-left:0;margin-right: 0.625rem;}
+    span.rec-scheduled_duration{margin-right:1px}
+}

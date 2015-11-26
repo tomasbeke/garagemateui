@@ -1,0 +1,81 @@
+
+.garagecheckout{
+
+	&{  }
+	&.hasnoselection .showonselection{
+	display:none !important;
+	opacity:.1;
+	}
+	
+	.check-out-find-wrap{text-align: center;clear:both;position: relative;
+	padding:10px 0 ;
+	margin: 20px  ;
+	}
+	.searchcnt{position: absolute;right: 15px;top: 15px;}
+	.check-out-scan{
+	height:8rem;
+	margin: 10px auto;border:1px solid #999;
+	width:85%;
+	box-shadow:2px 2px 5px #999;
+	clear:both;
+	background: url( "@{app-assets}/barcode-placeholder.png" ) center left no-repeat #fff;
+	background-size: contain;
+	
+	}
+	form input{ padding:0 5px}
+	
+	.check-out-scan span{font-size:2rem;color: #ccc;font-weight: 400}
+	.check-out-history{margin: 20px ;
+	background-color: #fff;
+	height:4rem;
+	}
+	
+	.check-out-find-options{text-align: right;}
+	.check-out-find-options .iswalkin{font-size: .8rem}
+	.check-out-scan,.check-out-find,.check-out-find-options{ width:85%;display: block;position: relative;margin: 2px auto; }
+	.check-out-find{
+	font-size:2rem;line-height:2rem;padding-top:4px;padding-bottom:4px;
+	border:1px solid #999;
+	}
+	.check-out-findicon{transform: scale(1.8);  }
+	.col{ overflow-y:auto;
+	position: relative;display: inline-block;width: 49%;vertical-align: top;}
+	.col1{ }
+	.col2{border-left:1px dashed #999; }
+	h3 {text-align: left;padding-left:20px; }
+	h3 .lbl{font-size:inherit;color:black;font-weight: 200;position: relative;display: inline-block;}
+	h3 .lbl:before{
+	content:".";width:8px;background-color: #0066ff;color: #0066ff; display: inline-block;margin-right:10px;line-height: .8;
+	}
+	
+	.reservecard-wrap{position: relative;margin-top:5px;}
+  .garage-user-info{
+		text-align:center;background-color: white;margin:10px;padding:0 0 30px 0;
+	  .userq{  font-size:2rem;color:gold;background:#eee;border:1px solid #ddd;margin:0 auto;    }
+	  .car-img{width:240px;display: inline-block;height:170px; margin-top:10px;  }
+	  .vehicle-widget-img{max-height:150px;}
+
+	  .vehicle-val-row{display:block}
+	  .vehicle_label{font-weight: 700;text-align: center;font-size: 1.5rem}
+	  .vehicle-info {max-width: 90%;min-width: 300px;margin: 10px auto;  display: inline-block;vertical-align: top;}
+	  .vehicle-info .info-val,.vehicle-info .info-val-label{display: inline-block;font-size: 1.1rem; }
+	  .vehicle-info .info-val{text-align: left;margin-right:10px;}
+	  .vehicle-info .info-val-label{text-align: right;margin-right:10px;color:gray;}
+	}
+	.checkout-bar{text-align: center;}
+	.vehicle-info{font-size:1.4rem}
+	.vehicle-info .section-label{font-weight: bold}
+	.task-list{width:28.125rem;margin: 4px auto 10px auto}
+	.checkout-link{margin:0 1px;}
+  .srvc-item{display:block;position: relative;text-align: left}
+  .srvc-item .srvc-status{
+	position: absolute;right:1px;top:1px;text-align: right;
+  	.srvc-status-item{display: inline-block;padding: 0 5px;font-size: .9rem;border: 1px solid #ccc;margin:0 2px;border-radius: 3px;color: #ccc;cursor: pointer ;background-color:#fcfcfc; }
+  	.srvc-status-item.current {color:black;font-weight:bold;background-color:#fff; border-color:#999;box-shadow:1px 1px 2px #ccc  }
+  	.srvc-status-completed.current {color:green;}
+  	.srvc-status-cancelled.current {color:red;}
+  	.srvc-status-pending.current {color:grey;} 	.srvc-status-processing.current {color:rgb(213, 197, 30);}
+  }
+
+
+}

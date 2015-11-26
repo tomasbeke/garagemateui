@@ -1,0 +1,19 @@
+
+
+<div class="extend-time">
+ <h4 style="margin-top:4px">Scheduled Time</h4>
+ <span class="scheduled-time"> {{scheduledTime}}</span>
+
+ <h4>Change To </h4>
+ <div class="extend-time-new clear-fix">
+ <label class="form-label" > Date </label>
+ <date-time-input class="form-ip" format="mm/dd/yyyy" style="border:1px solid #666;line-height: 1.7;" z-model="newreserveDate"></date-time-input>
+ <label class="form-label" >Time </label>
+ <date-time-input class="form-ip" format="hh:nn tt" style="border:1px solid #666;line-height: 1.7;" z-model="newreserveTime"></date-time-input>
+ </div>
+ <h4>Change Duration</h4>
+ <div class="extend-time-extend">
+ <time-duration class="form-ip" z-model="extendTime"/>
+ </div>
+
+</div>

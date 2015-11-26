@@ -1,0 +1,548 @@
+
+.garage {
+
+  & {
+	background-color: rgb(253, 253, 253)
+  }
+  .top-navbar {
+	text-align: left;
+	background-color: #ddd;
+	position: relative;
+	display: block;
+  }
+  .ts {
+	position: absolute;
+	right: 4px;
+	height: 100%;
+	top: 0;
+  }
+  .top-navbar .ts span {
+	line-height: 1.8;
+	color: #fff;
+	font-size: 1.1rem;
+  }
+  input {
+	background-color: white;
+  }
+  .hascontent .visible-on-content {
+	opacity: 1
+  }
+  .visible-on-content {
+	transition: opacity 2s ease-in !important;
+  }
+  &-left-nav .garage-meu {
+	height: 65px;
+	border: none;
+	margin: 0;
+	box-sizing: border-box;
+	border-top: 1px groove #14477d;
+	display: block;
+	position: relative;
+	color: white;
+	z-index: 1;
+	transition: background-color 1s ease;
+  }
+  section header {
+	width: 100%;
+	padding: 10px;
+	background: #666;
+  }
+  section header h2 {
+	font-size: 1.8rem;
+	color: #fff;
+  }
+  &-left-nav .garage-meu .link-icon {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	cursor: pointer;
+	overflow: hidden;
+	background-size: contain;
+	height: 50px;
+  }
+  &-left-nav .garage-meu .link-text {
+	font-size: .7rem;
+	line-height: 15px;
+	height: 15px;
+	color: #ccc;
+	text-align: center;
+	margin-top: -5px;
+  }
+  &-left-nav .garage-meu.selected {
+	background-color: #14477d;
+  }
+  &-left-nav .garage-meu::after {
+	content: " ";
+	position: absolute;
+	top: 50%;
+	right: -1px;
+	width: 0;
+	height: 0;
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+	border-right: 1px solid #ccc;
+	transition: all .5s ease;
+
+  }
+  &-left-nav .garage-meu.selected::after {
+	content: " ";
+	position: absolute;
+	top: 50%;
+	right: -1px;
+	width: 0;
+	height: 0;
+	margin-top: -5px;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-right: 10px solid #ccc;
+	transition: all .5s ease;
+
+  }
+
+  &-left-nav .garage-meu.selected .link-text {
+	color: #ffffff;
+  }
+  &-menu-garagecheckout span, &-menu-garagecheckin span {
+	display: block;
+	text-align: center;
+	line-height: 45px;;
+	transform: scaleY(2);
+	text-shadow: 1px 1px 1px #666;
+	font-size: 2.5rem;
+	color: #ffffff;
+  }
+  .start-card:hover {
+	background-color: #14477d;
+	cursor: pointer;
+	box-shadow: 2px 2px 5px #444;
+  }
+  .top-navbar .top-navbar-item {
+	background: #aaa;
+	font-size: 1.3rem;
+	cursor: pointer;
+	height: 2rem;
+	float: left;
+	color: #fefefe;
+	line-height: 1.5;
+	padding: 0 10px 0 1.2rem;
+	position: relative;
+	display: inline-block;
+	z-index: 3;
+  }
+
+  .top-navbar .top-navbar-item.step1 {
+	background: #ccc;
+	z-index: 2;
+	visibility: hidden
+  }
+  .top-navbar .top-navbar-item.step2 {
+	background: #eee;
+	z-index: 1;
+	visibility: hidden
+  }
+  .top-navbar .top-navbar-item::before {
+	content: "";
+	left: 100%;
+	top: 50%;
+	width: 0;
+	height: 0;
+	position: absolute;
+	margin-top: -1rem;
+	border: 1rem solid transparent;
+	border-left: 1rem solid #aaa;
+  }
+  .top-navbar .top-navbar-item.step1::before {
+	border-left: 1rem solid #ccc;
+  }
+  .top-navbar .top-navbar-item.step2::before {
+	border-left: 1rem solid #eee;
+  }
+
+  &-hdr {
+	height: 80px;
+	z-index: 2;
+	box-sizing: border-box;
+	background-color: #eaeaea;
+	padding: 10px 0;
+	border-bottom: 2px groove #f9f9f9;
+	text-align: center;
+	white-space: nowrap
+  }
+
+  &-slot {
+	height: 60px;
+	width: 120px;
+	background-color: #fff;
+	position: relative;
+	display: inline-block;
+	margin: 0 20px;
+  }
+  &-slot .right-notch {
+	height: 40px;
+	width: 10px;
+	background-color: red;
+	position: absolute;
+	right: -1px;
+	top: 10px;
+  }
+  &-slot .left-notch {
+	height: 40px;
+	width: 20px;
+	background-color: red;
+	position: absolute;
+	left: -10px;
+	top: 10px;
+  }
+  &-slot .txt {
+	font-size: 1.5rem;
+	padding: 0 10px;
+	text-align: center
+  }
+  &-slot .lbl {
+	font-size: .8rem;
+	color: #ccc;
+	padding: 0 10px;
+	text-align: center
+  }
+  &-slot.available .left-notch, &-slot.available .right-notch {
+	background-color: green;
+  }
+  &-slot.total .left-notch, &-slot.total .right-notch {
+	background-color: blue;
+  }
+  &-slot.upcoming .left-notch, &-slot.upcoming .right-notch {
+	background-color: yellow;
+  }
+  &-slot.notification .left-notch, &-slot.notification .right-notch {
+	background-color: #555500;
+  }
+  &-slot.messages .left-notch, &-slot.messages .right-notch {
+	background-color: #0066ff;
+  }
+  &-slot.messages {
+	width: 300px;
+  }
+  &-slot.messages .txt {
+	font-size: 1.5rem;
+	overflow: hidden;
+  }
+
+  .db-wrap {
+	margin: 0;
+	background-color: #AEBDCC;
+	position: relative;
+  }
+  &-left-nav {
+	position: absolute;
+	left: 0;
+	background: rgb(80, 85, 90);
+	width: 70px;
+	height: 100%;
+	z-index: 3;
+	border-right: 1px groove #14477d;
+	box-shadow: 2px 2px 4px #ccc;;
+  }
+
+  &-content {
+  }
+
+  .db-wrap .db-row {
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+	min-height: 200px;
+  }
+  .db-wrap .db-row1 {
+	height: 55%;
+	background-color: #ff0000;
+  }
+  .db-wrap .db-row1 .db-trend {
+	width: 60%;
+  }
+  .db-wrap .db-cell {
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	box-sizing: border-box;
+	padding: 20px;
+	background-color: #EEE;
+	overflow: hidden;
+  }
+  .db-wrap .db-row1 .db-check-in {
+	left: 60%;
+	width: 40%;
+  }
+  .db-wrap .db-row2 {
+	height: 40%;
+  }
+  .db-wrap .db-row2 .db-space-mng {
+	width: 100%;
+  }
+  .db-wrap .db-cell .db-content {
+	display: block;
+	min-width: 300px;
+	position: relative;
+	height: 100%;
+	background-color: #ffffff;
+	overflow: auto
+  }
+
+  .db-wrap .db-row1 .db-trend .db-content {
+	overflow: hidden;
+  }
+
+  .masthead, .slots {
+	display: -webkit-flex;
+	display: flex;
+  }
+  .masthead {
+	background: #999;
+	font-size: 2.4rem;
+	font-weight: 300;
+	padding: 0 20px;
+
+	.facility-info {
+	  padding: 0 10px;
+	  flex: 1;
+	  .operatorname,.facilityname{font-weight: 700;
+		text-shadow: 1px 1px 2px #666;
+	  }
+	}
+
+	nav,
+	nav ul,
+	.info {
+	  display: -webkit-flex;
+	  display: flex;
+	  -webkit-align-items: center;
+	  align-items: center;
+	}
+	ul {
+	  margin-top: 15px;
+	}
+	.info {
+	  color: #fff;
+	  -webkit-flex: 1;
+	  flex: 1;
+	}
+	.info .time {
+	  font-weight: 600;
+	}
+	nav ul li {
+	  list-style: none;
+	}
+	nav ul li {
+	  color: #fff;
+	  vertical-align: top;
+	  text-decoration: none;
+	  display: inline-block;
+	  text-transform: capitalize;
+	  font-size: 1.2rem;
+	  padding: 5px 20px 0;
+	}
+	nav ul li:hover,
+	nav ul li.active {
+	  background: #fff;
+	  color: #000;
+	}
+	nav ul li span {
+	  display: block;
+	  text-align: center;
+	}
+	/* Icons */
+	nav ul li span.icon,
+	.info .burger a {
+	  height: 40px;
+	  width: 40px;
+	  margin: 0 auto;
+	  background: url("@{app-assets}/sprite.png") no-repeat 0 0;
+	  background-size: 600% 600%;
+
+	}
+	nav ul .dashboard:hover .icon {
+	  background-position: -40px 0;
+	}
+	nav ul .dashboard.active .icon {
+	  background-position: -40px 0;
+	}
+
+	nav ul .pricing .icon {
+	  background-position: 0 -80px;
+	}
+	nav ul .pricing:hover .icon {
+	  background-position: -40px -80px;
+	}
+	nav ul .pricing.active .icon {
+	  background-position: -40px -80px;
+	}
+
+	nav ul .checkin .icon {
+	  background-position: -80px 0px;
+	}
+	nav ul .checkin:hover .icon {
+	  background-position: -120px 0;
+	}
+	nav ul .checkin.active .icon {
+	  background-position: -120px 0;
+	}
+
+	/* .masthead nav ul .checkinout .icon { background-position: -80px 0px; }
+    .masthead nav ul .checkinout:hover .icon { background-position: -120px 0; }
+    .masthead nav ul .checkinout.active .icon { background-position: -120px 0; }*/
+
+	nav ul .checkout .icon {
+	  background-position: -160px 0;
+	}
+	nav ul .checkout:hover .icon {
+	  background-position: -200px 0;
+	}
+	nav ul .checkout.active .icon {
+	  background-position: -200px 0;
+	}
+
+	nav ul .reports .icon {
+	  background-position: 0 -40px;
+	}
+	nav ul .reports:hover .icon {
+	  background-position: -40px -40px;
+	}
+	nav ul .reports.active .icon {
+	  background-position: -40px -40px;
+	}
+	nav ul .user .text{
+	  max-width: 100px;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	  white-space: nowrap;
+	}
+
+	nav ul .user .icon {
+	  background-position: -80px -40px;
+	}
+	nav ul .user:hover .icon {
+	  background-position: -120px -40px;
+	}
+	nav ul .user.active {
+	  background-position: -120px -40px;
+	}
+
+	nav ul .search .icon {
+	  background-position: -80px -40px;
+	}
+	nav ul .search:hover .icon {
+	  background-position: -120px -40px;
+	}
+	nav ul .search .text {
+	  display: none;
+	}
+	nav ul .search {
+	  margin-left: 20px;
+	  padding-top: 0;
+	}
+	nav ul .search:hover {
+	  background: none;
+	}
+
+	nav ul .search .icon {
+	  background-position: -160px -40px;
+	}
+	nav ul .search:hover .icon {
+	  background-position: -200px -40px;
+	}
+
+	.info .burger {
+	  display: none;
+	  margin: 8px 20px 0 0;
+	}
+	.info .info-part {
+	  line-height: 80px;
+	}
+	.info .info-part > img {
+	  vertical-align: middle;
+	}
+	.info .burger a,
+	.info .logo a {
+	  display: inline-block;
+	  text-indent: -999rem;
+	  overflow: hidden;
+	  height: 44px;
+	  vertical-align: middle;
+	}
+	.info .burger a {
+	  background-position: -160px -80px;
+	}
+	.info .burger a:hover {
+	  background-position: -200px -80px;
+	}
+
+	.info .logo a {
+	  background: url("@{app-assets}/start-up-logo-small.png") no-repeat 0 0;
+	  background-size: 40px 44px;
+	  width: 40px;
+
+	}
+
+	.weather {
+	  margin: 0 20px;
+	}
+	.weather .graphic {
+	  padding-left: 20px;
+	}
+	.weather .graphic img {
+	  vertical-align: middle;
+	}
+  }
+  .slots {
+	background: none;
+	border-top: 2px solid #fff;
+	justify-content: center;
+	-webkit-justify-content: center;
+
+	.slot {
+	  -webkit-flex: 1;
+	  flex: 1;
+	  color: #fff;
+	  border-right: 1px solid #fff;
+	  background: #000;
+	  padding: 0 5px 5px;
+	  line-height: 1;
+	}
+	.slot:last-child {
+	  border: 0 none;
+	}
+	.slot:nth-child(2) {
+	  background: #39B54A;
+	}
+	.slot:nth-child(3) {
+	  background: #F7931E;
+	}
+	.slot:nth-child(4) {
+	  background: #CCCC1F;
+	}
+	.slot:nth-child(5) {
+	  background: #29ABE2;
+	}
+	.slot span {
+	  display: block;
+	}
+	.slot .quantity {
+	  font-size: 6rem;
+	  font-weight: 300;
+	  text-align: right;
+	}
+	.slot .name {
+	  font-size: 1.8rem;
+	  text-align: left;
+	}
+  }
+	.clockbox {white-space: nowrap;font-size: 2.2rem;font-family: Lato;}
+	.clockbox .month{font-weight: 100}
+	.clockbox .day{font-weight: 100}
+	.clockbox span{display: inline-block;padding:0 1px}
+	.user-info{font-size: 1rem;position:absolute;top:0;right:10px;margin-top:0}
+	.tab-panels{clear: both;}
+
+
+}
+

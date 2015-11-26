@@ -1,0 +1,521 @@
+;(function(){
+var _query = {
+	byId: function(s) {
+		return document.getElementById(s)
+	},
+	byClass: function(s, dom) {
+		return _arr((dom || document).getElementsByClassName(s))
+	},
+	byStyle: function(s, dom) {
+		return _arr((dom || document).querySelectorAll("*")).filter(function(a){var v=a.style?a.style[s]:"";return v&&v!="auto"&&v!="inherit" })
+	},
+	byTag: function(s, dom) {
+		return _arr((dom || document).getElementsByTagName(s))
+	},
+	makeAttribSel: function(nm, v, pre) {
+		var s = "",
+			nm, v, pre, dom
+		s = (pre || "") + "[" + nm + ((v == null || v == "") ? "" : ('="' + v + '"')) + "]"
+		return s
+	},
+	byAttrib: function() {
+		var s = "", nm, v, pre, dom, single
+		var a = [].slice.call(arguments)
+		if (a[a.length - 1] === true) {
+			single = a.pop()
+		}
+		if (a[a.length - 1] && a[a.length - 1].nodeType) {
+			dom = a.pop()
+		}
+		nm = a.shift();
+		v = a.shift();
+		pre = a.shift()
+		s = _query.makeAttribSel(nm, v, pre)
+		return single ? _arr((dom || document).querySelector(s)) : _arr((dom || document).querySelectorAll(s))
+	},
+	byData: function() {
+		var a = [].slice.call(arguments)
+		if (String(a[0]).indexOf("data") == -1) {
+			a[0] = "data-" + String(a[0]).replace(/^-/, "")
+		}
+		return _query.byAttrib.apply(_query, a)
+	}
+}
+var __JQproto = null
+function _qall(selector,par) {
+	return _doquery(selector, par);
+}
+var fncache={}
+function setupJQProto(){
+	if (!__JQproto) {
+		__JQproto={}
+		function _exarray(lst) {
+			return List.from(lst).chainable()
+		};
+
+
+		var bdy = (function() {
+			return this.__invoke('__name__',arguments);
+		}).toString().replace(/^\s*function\s*\(\s*\)\s*\{\s*/, "").replace(/\}\s*$/, "").trim()
+
+		Object.defineProperty(__JQ.prototype,"el",{get:function(a){return (this[0]||{}).el},set:function(){},enumerable:true})
+		var __getPropGen = (function() {
+			function makecallback(propname){
+
+				var haspath=propname.indexOf(".")> 0,isstyle= 0,callback
+				if($d.css.isStyle(propname)){
+					isstyle=$d.css.getRecord(propname)
+				}
+				if(isstyle) {
+					callback = isstyle.getValue.bind(isstyle)
+				}
+				else if(haspath) {
+					callback = $.resolveProperty
+				} else {var prop=propname
+					callback = function(el){
+						var r=el?el [prop]:null;
+						return r==null && el.getAttribute?el.getAttribute(prop):r
+					}
+				}
+				return callback
+			}
+			var cache={}
+			return function(propertyName){
+				// if(cache[propertyName]){return cache[propertyName]}
+				var callback=makecallback(propertyName);
+				return cache[propertyName]=function(){
+					return this.__invoke(
+						function(el) {
+							return (el && el.el)?callback(el.el, propertyName):null
+						}
+					)}
+			}
+		})();
+		var workel=document.createElement("div")
+		function _selectorOrfn(val){
+			if(typeof(val)=="function"){
+				return val
+			}
+			if(typeof(val)=="string" && val.trim().indexOf("->")==0){
+				return $.fnize(val.trim().replace("->","").trim())
+			}
+			return val
+		}
+		function _flatten(list,res){
+			res=res||[]
+			list.forEach(function(a){
+					if(Array.isArray(a) || (a instanceof Array)){
+						_flatten(a,res);
+					} else{
+						res.indexOf(a)==-1 && res.push(a);
+					}
+				}
+			);
+			return res
+		}
+		function _resolveMethod(fn,args){
+			if(typeof( fn) === "function"){
+				return {fn:fn, ctx:"el",args:[].slice.call(args||[])}
+			}
+			if(typeof(fn) !== "string"){
+				return null
+			}
+			var memo={fn:null, ctx:$d,args:[].slice.call(args||[])}
+			if(fncache[fn]){var c=fncache[fn]
+				return {fn: c.fn,ctx: c.ctx,native: c.native,args:[].slice.call(args||[]),newcollection: c.newcollection};
+			}
+
+			if(!$d[fn] && typeof(workel[fn]) == "function"){
+				memo.fn=workel[fn]
+				memo.native=true;
+				memo.ctx=null
+			} else {
+				if(typeof($d[fn]) == "function"){
+					memo.fn=$d[fn]
+				} else {
+					var parsed = $.parse(fn)
+					if (parsed && parsed.vars && parsed.vars.length && (parsed.vars[0] in $d || parsed.vars[0] in workel)) {
+						memo.fn = parsed
+						if (parsed.vars[0] in workel) {
+							memo.ctx = null
+						}
+					}
+				}
+			}
+
+
+
+
+			if(memo.fn && memo.ctx==null){
+				memo.args=memo.args.map(function(it){return (it && it.el)?it.el:it})
+			}
+			if(memo.ctx===null || memo.ctx ==="el"){
+				if(memo.native){memo.firstarg="element"}
+				else{
+					memo.firstarg=memo.ctx?memo.ctx ==="el"?"el":"element":null
+				}
+
+			}
+			if(/s$/.test(fn)){
+				memo.newcollection=true
+			}
+			 fncache[fn]=memo
+
+			return memo
+		}
+		__JQ.prototype.newInstance = function(res,selector,root) {
+			var nu=new __JQ(res,  this.__config__)
+			return nu;
+		}
+		__JQ.prototype.getProperty = function(nm) {
+			var fn=__getPropGen(nm)
+			return fn.call(this)
+		}
+		__JQ.prototype.setProperty = function(nm,val) {
+			this.each(function(el){el.prop(nm,val)})
+			return this
+		}
+		__JQ.prototype.tap = function(fn) {
+			fn.apply(this,[this].concat([].slice.call(arguments,1)))
+			return this
+		}
+		__JQ.prototype.__exec = function(fn,fnargs,memo) {
+			var res=[]
+
+			memo=memo||_resolveMethod(fn,fnargs)
+			if(!memo || !memo.fn){return null}
+
+			var mthd =memo.fn,args=memo.args||[],ctx=memo.ctx, l = this, ln = l.length
+			for (var i = 0; i < ln; i++) {
+				var r,el=l[i];
+				if (!el) {
+					continue
+				}
+				var r
+				if(memo.native){
+					r=mthd.apply(el.el,args)
+				}
+				else if(typeof(el[fn])=="function"){
+					r=el[fn].apply(el,args)
+				}
+				else{
+					r=mthd.apply((ctx===null || ctx ==="el")? el:ctx, ctx ?[ctx ==="el"?el:(el.el || el)].concat(args): args )
+				}
+				res.push(r)
+			}
+			return res;
+		}
+		__JQ.prototype.__invoke = function(fn,fnargs) {
+			var memo=_resolveMethod(fn,fnargs)
+			var allel = 1,issame= 0,  result=[],result0 = this.__exec(fn,fnargs,memo)
+			if(!result0){
+				return this
+			}
+			var ln = result0.length||0,ifnotself=this.__config__.returnfirstifnotself,ifnotel=this.__config__._returnfirstifnotel
+			if(!ifnotself && memo.newcollection){
+				ifnotself=false;
+			}
+			//if(!ln){return }
+			if(ln==1){
+				var first=(this[0]||{}).el||this[0],resultfirst=(result0[0]||{}).el||result0[0]
+				if(this.length==1 && (first===resultfirst)){
+					return this
+				}
+				return resultfirst
+
+			}
+			for (var i = 0, l = result0 ; i < ln; i++) {
+				var r =l[i];
+				if(typeof(r)==="undefined"){r=this[l]}
+				if(r===this[i]){
+					issame++;
+					result.push(r)
+					continue
+				} else{
+					if(ifnotself){
+						return i?result[0]:r
+					}
+					if(ifnotel && !(r && r.nodeType)){return i?result[0]:r}
+				}
+				if (r!=null){
+
+					if(typeof(r)==="boolean"){
+						allel = 0
+						if(!r){
+							return false;
+						}
+					}
+					else if (Array.isArray(r) || (typeof(r) === 'object' && r.length)) {
+						issame=0;
+						for (var i2 = 0, l2 = r, ln2 = l2.length; i2 < ln2; i2++) {
+							if(allel && !(l2[i2] && l2[i2].nodeType) ){allel=0}
+							(!allel  || result.indexOf(l2[i2])==-1) && result.push(l2[i2])
+						}
+					} else {
+						if(r && r.nodeType){
+							result.indexOf(r)==-1 && result.push(r)
+						} else{
+							allel = 0
+							result.push(r)
+						}
+					}
+				}
+			}
+
+			if (issame && !(issame===this.length)) {
+				issame = 0
+			}
+			/*if (!result.length || result.some(function(a) {
+			 return a != null && !a.nodeType
+			 })) {
+			 allel = 0
+			 }*/
+			if (allel && issame) {
+				return this;
+			}
+			if(ifnotself){
+				return result[0]
+			}
+			if (allel) {
+				return this.newInstance(result);
+			}
+			if(result.length==1 && typeof(result[0])==="boolean") {
+				return result[0]
+			}
+			return _exarray(result)
+		}
+		Object.keys($d).forEach(
+			function(a) {if(a=="el"){return}
+				if (typeof(a) !== "string" || a.toUpperCase() === a || a == "st"   ||a == "qq"   || a in __JQ.prototype) {
+					return
+				}
+				if(typeof($d[a]) == "function"){
+					__JQ.prototype[a] = Function(bdy.replace(/__name__/, a));
+				}
+
+			}
+		);
+		__JQ.prototype.scrollTop = function(val){if(this[0] && this[0].el){
+			if(val!=null){this[0].el.scrollTop=val;return this}
+			return this[0].el.scrollTop
+		}};
+		__JQ.prototype.scrollLeft = function(val){
+			if(this[0] && this[0].el){
+			if(val!=null){this[0].el.scrollLeft=val;return this}
+			return this[0].el.scrollLeft
+		}};
+		if(document.body){
+			var body=document.body,noop=function(){ } ;
+			Object.keys(document.body).forEach(
+				function(a) {if(a=="el"){return}
+					if ( typeof(a) !== "string" || body[a] == "function" || a.toUpperCase() === a || a.indexOf("_") == 0 ||  a in __JQ.prototype) {
+						return
+					}
+
+					var _set= Function("v","this.setProperty('"+a+"',v)")
+
+					Object.defineProperty(__JQ.prototype,a,{ get: __getPropGen(a), set:_set})
+				}
+
+			);
+		}
+
+		__JQ.prototype.collect = function(fn) {
+			return this.__invoke(fn,[].slice.call(arguments,1))
+		}
+		var nthcache={}
+		__JQ.prototype.nth = function(i) {
+			if(typeof(i)=="string" && i.indexOf("n")>=0){
+				var fn=nthcache[i]||(nthcache[i]=Function("n","return "+ i.replace(/([\d]+)n/g,function(a,b){return "("+b+"* n)";})));
+				var result=[],sz=this.size();
+				for (var i1 = 0, l1 = this, ln1 = l1.length; i1 < ln1; i1++) {
+					var i2=fn(i1+1);
+					if(i2>= sz){break;}
+					i2>0 && this[i2-1] && result.push(this[i2-1])
+				}
+				return new this.constructor(result, null, this.root, this.__log);
+			}
+			if(i>0 && i<=this.length ){
+				return this[i-1]
+			}
+			return null
+		}
+		__JQ.prototype.last = function() {
+			return this[this.length-1]
+		}
+		__JQ.prototype.first = function() {
+			return this[0]
+		}
+		__JQ.prototype.each = function(fn,ctx) {
+			if(!(ctx && typeof(ctx)=="object")){ctx=null}
+			for(var i= 0,l=this,ln= l.length;i<ln;i++){
+				fn.call(ctx||l[i],l[i],i,this)
+			}
+			return this
+		}
+		__JQ.prototype.select = function( ) {
+			var args=[].slice.call(arguments),tx=null,res=[];
+			var last=_selectorOrfn(args[args.length-1])
+			if(args.length) {
+				var fn=args.shift(),l = this, ln = l.length
+				for (var i = 0; i < ln; i++) {
+					var el = l[i];
+					if (!el) {
+						continue
+					}
+					if(typeof(fn)=="function"){
+						var r=fn(el)
+						if(!r){continue}
+						if(typeof(r)=="object" && r.length!=null){
+							res.push(r)
+						} else{
+							res.push(el)
+						}
+
+					}else{
+						res.push($d._doquery(fn, el))
+					}
+
+				}
+				res = _flatten(res)
+				if (args.length > 1) {
+
+					var res2 = args.reduce(function (list, sel) {
+						return list.select(sel)
+					}, res)
+
+					res = _flatten(res2)
+ 				}
+			} else{
+				res=this
+			}
+			if (tx) {
+				return res.map(tx)
+			}
+			return this.newInstance(res.map($d.ex) )
+		}
+		__JQ.prototype.filter = function(fn) {
+			var res=[], l = this, ln = l.length
+			var last=_selectorOrfn(fn)
+			for (var  i = 0; i < ln; i++) {
+				var el=l[i];if(!el){continue}
+				if(typeof(last)=="function"){
+					last.call(el, el,i) && res.push(el)
+				} else if(typeof(last)=="string"){
+					$d.matches(el,last) && res.push(el)
+				}
+			}
+			if(res.length==ln){return this}
+			return this.newInstance(res )
+		}
+		__JQ.prototype.findAll = function(fn) {
+			var res=this.filter(fn)
+			if(arguments.length>1){
+				return [].slice.call(arguments,1).reduce(function(list,sel){
+					return list.filter(sel)
+				},res)
+			}
+			return res
+
+
+		}
+		__JQ.prototype.size = function() {
+			return this.length
+		};
+
+
+		__JQ.prototype.index = function(a) {
+			return this.indexOf(a)
+		};
+		__JQ.prototype.refresh = function(selector) {
+			selector = selector || this.__config__._selector;
+			if (selector && typeof(selector) == "string" && this.__config__.root) {
+				var lst = [].slice.call(this.__config__.root.querySelectorAll(selector));
+				this.splice(0, this.length)
+				this.push.apply(this, lst.map(function(a){return $d(a)}));
+			}
+			return this;
+		};
+		__JQ.prototype.eq= function eq(idx) {
+
+			return this[idx]
+		}
+		__JQ.prototype.add = function(el) {
+			el=$d(el)
+			if(el && this.indexOf(el)==-1){
+				this.push(el)
+			}
+			return this;
+		}
+		__JQ.prototype.andSelf = function() {
+			return this.add(this.__config__.root);
+		}
+		__JQ.prototype.constructor=__JQ
+		__JQ.fn = __JQ.prototype;
+		qq.fn = __JQ.prototype;
+	}
+}
+var 	__JQ = function(lst, selector ) {
+		setupJQProto();
+		var config={}
+		if(arguments.length==2 && selector && typeof(selector)=="object"){
+			config=arguments[1];
+		} else{
+			config={returnfirstifnotself:true,selector:selector,root:arguments[2] || document,log:arguments[3] || []}
+		}
+		if(config.returnfirstifnotself==null){
+			config.returnfirstifnotself=true;
+		}
+		if(typeof(lst)=="string"){
+			selector=lst;
+			lst=null;
+		}
+		if(lst==null && typeof(selector)=="string"){
+			lst = $d._doquery(selector, config.root).map($d.ex)
+		}
+		Object.defineProperty(
+			this,"__config__",
+			{value:config,enumerable:false,writable:false,configurable:true}
+
+		)
+		if(lst == null){return}
+		if(!lst){lst=[]}
+		else if(lst.length==null){lst=[lst]}
+		this.push.apply(this, lst);
+
+
+	}
+	__JQ.prototype = Object.create(Array.prototype);
+
+function qq() {
+	var selector=arguments[0],par=arguments[1]
+	if(selector && typeof(selector)=="object" && (selector.nodeType || selector===window)){
+		par=selector;
+		selector=arguments[1]
+	}
+
+	if (!selector) {
+		if(par && $d(par)){
+			return new __JQ([$d(par)])
+		}
+		return []
+	}
+
+
+	/*if (typeof(arguments[arguments.length - 1]) == "function") {
+	 iter = arguments[arguments.length - 1]
+	 }
+	 res = res.map(_wrap);
+	 if (iter) {
+	 res.forEach(iter)
+	 }*/
+
+
+	//__JQ.single=
+
+	return new __JQ(null,selector, par)
+}
+$.extend(qq, _query)
+$d.qq = qq
+self.$$=qq
+})();

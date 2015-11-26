@@ -1,0 +1,20 @@
+
+.landing{
+
+	&{position:relative;overflow:hidden;max-width:100%;height:100vh;min-width:300px; min-height:500px;width:410px; margin: 0 auto;border:1px solid #ccc;
+	background: url("@{app-assets}/blueprint-dark.png") no-repeat left top;
+	}
+	&-footer{background: url("@{app-assets}/landing/footer2.png");background-repeat: repeat-y; margin-top:-3px;}
+	&-links{height:100vh;position:relative; max-width:100vw;}
+	&-link {overflow:hidden;position:relative;white-space: nowrap;text-align: center; max-height:32%}
+	&-links  img { display: inline-block;}
+	.link-img{vertical-align: top;cursor: pointer;}
+	.link-img2{margin-left:-2px;}
+	&-app-links{ position: relative;min-height:350px;}
+	&-app-links  img {  max-height:100%}
+	&-header{overflow: hidden;height: 7rem;background: url("@{app-assets}/landing/headerbg.png") repeat-x;text-align: center;}
+	&-header-links, &-header-link{height: 6.2rem;cursor: pointer;}
+	&-header-link-location{display:inline-block;width:180px;color:white;text-align: center;    vertical-align: top;font-size: 2rem;    line-height: 62px;
+	background: url("@{app-assets}/landing/location.png") no-repeat left top; background-size: cover;overflow: hidden;}
+	.leftph,.rightph{display:inline-block;max-width:26px;width:26px;height:100%;    vertical-align: top;}
+}

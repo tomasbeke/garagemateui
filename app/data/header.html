@@ -1,0 +1,41 @@
+<section class="top-header light-blue-colorbg"  z-scope="userviewheader">
+ <header class="masthead">
+  <div class="info">
+   <div class="burger"><a href="#">menu</a></div>
+   <div class="logo"><a href="dashboard">logo</a></div>
+   <div class="weather"><span class="counter"><span class="num">75</span><span>&deg;</span></span><span
+           class="graphic"><img src="assets/weather-graphic.png" height="25" width="25"></span></div>
+   <div class="clockbox"><span class="month">May </span><span class="day">15, </span><span class="time"><span
+           class="hour">1</span><span>:</span><span class="minute">20</span><span
+           class="meridiem"> PM</span></span></div>
+  </div>
+  <nav>
+   <ul>
+    <li class="dashboard"><a href="dashboard"><span class="icon"></span><span class="text">dashboard</span></a>
+    </li>
+    <li class="checkin"><a href="checkin" class=" active"><span class="icon"></span><span
+            class="text">checkin</span></a></li>
+    <li class="checkout"><a href="checkout"><span class="icon"></span><span class="text">checkout</span></a>
+    </li>
+    <li class="pricing"><a href="pricing"><span class="icon"></span><span class="text">pricing</span></a></li>
+    <li class="reports"><a href="reports"><span class="icon"></span><span class="text">reports</span></a></li>
+    <li class="user"><span class="icon"></span><span class="user-name text">{{user.name}}</span><span class="user-logout" data-cmd="signOut">{{app.user.id?"logoutX":"Sign in"}}</span><span class="app-version">{{user.appversion}}</span></li>
+    <li class="search"><a href="search"><span class="icon"></span><span class="text">search</span></a></li>
+   </ul>
+  </nav>
+ </header>
+
+ <!--<div style="position:fixed;top:0;left:50px;width:auto;height:auto;color:white;font-size:.8rem;font-weight: 100;" class="system_noti"></div>
+ <span class="nav-back">&lt;</span><span class="app-out-msg">..</span>
+ <img class="logo" src="app/theme/assets/start-up-logo-small.png" data-cmd="home"/>
+ <span class="page-title">ParcMate</span>
+ <div class="social-links">
+ <div class="social-links-label"style="font-size:.8rem;font-style: italic;  line-height: .9;">follow us</div>
+ <a href="http://facebook.com/parcmate" class="sm-link" target="_blank"><img src="/theme/img/icon-fb.png" alt="facebook"></a>
+ <a href="http://twitter.com/parcmate" class="sm-link" target="_blank"><img src="/theme/img/icon-twitter.png" alt="twitter"></a>
+ <a href="https://plus.google.com/u/3/?_ga=1.85828636.462837917.1431336585" class="sm-link"  target="_blank"><img src="/theme/img/icon-gplus.png" alt="gplus"></a>
+ </div>
+ <span class="user-info"><span class="user-name">{{user.name}}</span><span class="user-logout" data-cmd="signOut">{{app.user.id?"logoutX":"Sign in"}}</span><span class="app-version">{{user.appversion}}</span></span>
+ <div class="app-notifications-link"><div class="app-notifications-count">?</div> </div>
+ <span class="ham-burger app-menu"> </span>
+</section>

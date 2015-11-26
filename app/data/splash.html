@@ -1,0 +1,27 @@
+
+<div class="app-splash"
+     style="top: 0; left: 0; width: 100%; height: 99.5%; position: absolute;background: radial-gradient(ellipse at center, rgba(90,180,244,1) 0%,rgba(7,101,183,1) 100%);text-align: center;">
+    <img src="app/theme/assets/start-up-logo2.png" />
+    <div class="app-auth">
+        <form class="app-auth-form" action="javascript:void(0)">
+            <div> User Id</div>
+            <input type="text" class="app-auth-loginid" autofocus="true" placeholder="User id"  autofocus="autofocus" name="auth_loginid" id="auth_loginid"   style="display:block;text-shadow:1px 1px 1px #ccc;background:white;border:1px solid #ccc;color:#333color:#333;padding:0 5px; font-size:1.2rem;line-height:2;width:16rem;border-radius:5px;"/>
+            <div> Password</div>
+            <input type="password" class="app-auth-pw" placeholder="Password" autocomplete="off"  name="auth_pw" id="auth_pw"   style="display:block;text-shadow:1px 1px 1px #ccc;background:white;border:1px solid #ccc;color:#333color:#333;padding:0 5px; font-size:1.2rem;line-height:2;width:16rem;border-radius:5px;"/>
+
+            <div id="login-msg"  class="login-msg" style="text-align:center;color:red;"></div>
+
+            <div style="text-align:right;margin-top:5px;padding-right:5px;clear:both;height:30px;">
+                <span style="float:left;" class="app-auth-forgot-pw">forgot password?</span>
+                <button class="app-auth-enter" type="submit" style="float:right;height: 1.8em;background:#f3f3f3; border: 2px solid #999; color: #333;padding: 1px 10px;color:#fff; background:#7AC548;border-color:#7AC548;" >Enter</button>
+            </div>
+            <div class="app-auth-acts" >
+                <span  class="app-auth-new-account" onclick="app.promptNewAccount()">Create New Account</span>
+            </div>
+        </form>
+        <div id="auth__link" style="cursor:pointer;top:100px;font-size:.9em;color:#fff;text-align:center;text-shadow:1px 1px 1px #fcfcfc;">Login</div>
+    </div>
+</div>
+<div id="vhcheck" style="position:absolute;left:1px;height:100vh;top:0;width:1px">.</div>
+<div id="calccheckvh" style="position:absolute;left:1px;height:calc(100vh - 1px);top:0;width:1px">.</div>
+<div id="calccheck" style="position:absolute;left:1px;height:calc(100% - 1px);top:0;width:1px">.</div>

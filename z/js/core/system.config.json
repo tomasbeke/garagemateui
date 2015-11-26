@@ -1,0 +1,12 @@
+{"resourcebundles":{
+    "bootstrap":[  "js/fw1/bootstrap"],
+
+    "core":[  "js/fw1/collections","js/fw1/base","js/fw1/dom","js/fw1/domutil", "js/fw1/data",
+    "js/fw1/utils","js/fw1/router"
+    ],
+    "UI": [ "js/fw1/UI/layout","js/fw1/UI/Grid","js/fw1/UI/geometry","js/fw1/UI/form","js/fw1/UI/calendar"],
+    "map": ["js/fw1/UI/zmap"],
+    "theme-light":["theme/theme-base","theme/layout","theme/theme-light"]   ,
+    "theme-dark":["theme/theme-base","theme/layout","theme/theme-dark"]
+    }
+}

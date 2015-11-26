@@ -1,0 +1,44 @@
+<div class="garagecheckout">
+
+<div class="col col1">
+ <h3><span class="lbl">Check Out</span></h3>
+  <div class="check-out-find-wrap">
+  <div class="check-out-find-options">
+   </div>
+   <input class="check-out-find"  placeholder="Search" type="search"/><span class="searchcnt"   z-bind="searchcnt"></span>
+
+ <div class="check-out-scan" >
+   <div class="scanned-code"></div>
+ </div>
+
+ </div>
+ <h3><span class="lbl">User Information</span></h3>
+ <div class="showonselection garage-user-info">
+ <div class="userq" z-bind="user.fullname"></div>
+ <div class="vehicle-info">
+
+ </div>
+ </div>
+</div>
+<div class="col col2">
+ <h3><span class="lbl">Cost</span></h3>
+ <div class="showonselection task-list">
+ <h4>Tasks</h4>
+ <div class="extra-service">
+ </div>
+
+ </div>
+ <div class="showonselection checkout-bar">
+  <button class="checkout-link checkout-link-member" z-onclick="checkoutmember">Checkout</button>
+  <button class="checkout-link checkout-link-cash" z-onclick="checkoutmembercash">Check-out CASH</button>
+  <button class="checkout-link checkout-link-cc"  z-onclick="checkoutmembercc">Check-out CC</button>
+  <button class="checkout-link checkout-link-monthly"  z-onclick="checkoutmembermonthly">Check-out MONTHLY</button>
+
+ </div>
+
+ <div class="reservecard-wrap showonselection">
+ {{>reservecard}}
+ </div>
+
+ </div>
+</div>

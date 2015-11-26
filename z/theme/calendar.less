@@ -1,0 +1,65 @@
+.cal-wrap{
+    position: relative;overflow: hidden;background-color:white;
+
+    &,.cal-day,.cal-hdr-day,.cal-hdrlinks {color:#666;}
+
+    .cal-hdr-day,.cal-day{
+        display:inline-block;height:100%;width:14.1%;overflow:hidden;vertical-align: middle; position:relative;text-align: center; border:none;line-height: 2.0;text-shadow:1px 1px #ccc
+    }
+    .cal-content{display:none}
+
+    .cal-withev{
+        .cal-day {
+            .cal-text{position:absolute;right:3px;top:1px;height:auto;width:auto;line-height: 1.6;}
+            .cal-content{display:block;position:absolute;width:98%;padding:0 1%;left:0;top:20px;height:auto;text-align:center;line-height: 1.2;}
+            .cal-content .cal-content-item{overflow: hidden;white-space: pre-wrap;text-shadow:none;display:block;position:relative;line-height: 1.2;font-size:.9rem;}
+        }
+    }
+
+    .cal-week{
+        display:block;white-space: nowrap;height:16.6%;
+        .cal-disabled1{background-color: #f2f2f2 !important;color:#666 !important;cursor:no-drop}
+        .cal-next-month2, .cal-prev-month2{background-color: #fafafa;}
+        .cal-weekend2{background-color: #f3f3f3;}
+        .current-date{background-color: orange}
+    }
+
+    .cal-day{
+        cursor:pointer;
+        &.hoverable{border-radius: 22px}
+        .cal-text{font-size:1.2rem;line-height: 1;position: relative;vertical-align: text-top;}
+        &.current-date{color:black;text-shadow:1px 1px 1px #ccc}
+    }
+
+    .navleft{position:absolute;left:2px;top:1px; color:#ccc;text-align:center;padding:0;}
+    .navleft:hover, .navright:hover{outline:1px solid #ccc;}
+    .navright{position:absolute;right:2px;top:1px; color:#ccc; text-align:center;padding:0;}
+    .cal-hdr-day,.cal-hdr{height:2rem;font-size:.9rem}
+    .cal-hdr{padding-bottom:2px; border-bottom:1px solid #999;}
+
+    .cal-hdrlink-currentdate{font-size:1.2rem;display:none;text-shadow:1px 1px #ccc}
+    .cal-hdrlink-currentmonth{font-size:1.4rem;display:block;text-align:center;margin-top: -5px;text-shadow:1px 1px #ccc}
+    .cal-hdrlink-currentyear{font-size:1rem;display:block;text-align:center;text-shadow:1px 1px #ccc;}
+
+    .cal-hdrlinks{
+        display:block;text-align: center;
+        .cal-hdrlink{text-align:center;padding:0 4px;cursor: pointer}
+        .cal-hdrlink-current{font-size:2rem}
+        .cal-hdrlink-prevmonth{left:25px;color:#ccc;padding:0 3px;}
+        .cal-hdrlink-nextmonth{right:25px;color:#ccc;padding:0 3px;}
+    }
+    .cal-body .cal-week{border-top:none}
+
+
+    .cal-bigger {
+        .cal-day .cal-text, .cal-hdr-day, .navleft, .navright{font-size:1.4rem;line-height:1.2}
+        .cal-day .cal-text{font-size:1.8rem}
+        .cal-hdr{font-size:1rem;}
+        .cal-day{outline:1px solid #999;}
+    }
+
+    .cal-footer{display: none}
+     .cal-body{ position:relative;z-index:2;padding-bottom:5px;}
+    .cal-week{display:block;white-space: nowrap;height:1.8rem;}
+    .cal-hdr-day,.cal-day{width:2.2rem;}
+}

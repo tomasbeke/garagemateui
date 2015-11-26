@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="misha.css">
+
+</head>
+<body class="checkin">
+<header class="masthead">
+	<div class="info">
+		<div class="burger"><a href="#">menu</a></div>
+		<div class="logo"><a href="dashboard">logo</a></div>
+		<div class="weather"><span class="counter"><span class="num">75</span><span>&deg;</span></span><span
+				class="graphic"><img src="assets/weather-graphic.png" height="25" width="25"></span></div>
+		<div class="clockbox"><span class="month">May </span><span class="day">15, </span><span class="time"><span
+				class="hour">1</span><span>:</span><span class="minute">20</span><span
+				class="meridiem"> PM</span></span></div>
+	</div>
+	<nav>
+		<ul>
+			<li class="dashboard"><a href="dashboard"><span class="icon"></span><span class="text">dashboard</span></a>
+			</li>
+			<li class="checkin"><a href="checkin" class=" active"><span class="icon"></span><span
+					class="text">checkin</span></a></li>
+			<li class="checkout"><a href="checkout"><span class="icon"></span><span class="text">checkout</span></a>
+			</li>
+			<li class="pricing"><a href="pricing"><span class="icon"></span><span class="text">pricing</span></a></li>
+			<li class="reports"><a href="reports"><span class="icon"></span><span class="text">reports</span></a></li>
+			<li class="user"><a href="user"><span class="icon"></span><span class="text">user</span></a></li>
+			<li class="search"><a href="search"><span class="icon"></span><span class="text">search</span></a></li>
+		</ul>
+	</nav>
+</header>
+<section class="slots">
+	<div class="slot total"><span class="quantity">500</span><span class="name">Total Slots</span></div>
+	<div class="slot available"><span class="quantity">240</span><span class="name">Available Slots</span></div>
+	<div class="slot upcoming"><span class="quantity">10</span><span class="name">Upcoming Reservations</span></div>
+	<div class="slot notifications"><span class="quantity">2</span><span class="name">Notifications</span></div>
+	<div class="slot messages"><span class="quantity">0</span><span class="name">Messages</span></div>
+	<!--div.slot.auxillary--></section>
+<div class="container">
+	<form id="checkin" class="checkin-form">
+		<section class="checkin box">
+			<header><h2>Check-In</h2></header>
+			<div class="group">
+				<header class="headers"><h3>Member</h3>
+
+					<h3>Non-Member</h3></header>
+				<legend>Member</legend>
+				<fieldset id="member" form="checkin" class="member module"><img src="assets/barcode-placeholder.png"
+				                                                                width="100" height="100"
+				                                                                class="bar-scan-img"><span>or</span>
+
+					<div class="input"><input type="search" placeholder="Search for ParcMate User">
+						<button type="button" class="search"></button>
+					</div>
+				</fieldset>
+				<legend>Non-Member</legend>
+				<fieldset form="checkin" class="non-member module">
+					<div class="fields">
+						<div class="input select"><select name="State">
+							<option value="State">State</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select></div>
+						<span>&mdash;</span>
+
+						<div class="input license-number"><input type="text" placeholder="Enter License Plate"></div>
+						<button type="button" class="default">Enter</button>
+					</div>
+				</fieldset>
+			</div>
+		</section>
+		<section class="parking-vehicle-info">
+			<div class="parking-info box module">
+				<header><h2>Parking Information</h2></header>
+				<fieldset name="Parking Information" form="checkin">
+					<div class="row license-plate"><label for="License Plate">License Plate</label>
+
+						<div class="input"><input type="text" id="License Plate" placeholder="Select the license"></div>
+					</div>
+					<div class="row coupon"><label for="Coupon">Coupon</label>
+
+						<div class="input"><input type="text" id="Coupon" placeholder="Enter coupon code if available">
+						</div>
+					</div>
+					<div class="row"><label for="Time In">Time In</label>
+
+						<div class="time-selection">
+							<div class="timer"><span class="counter input"><span
+									class="hour">12</span><span>:</span><span class="minute">33</span><span
+									class="meridiem"> AM</span></span></div>
+							<div class="input select"><select name="1;00">
+								<option value="Select Duration">Select Duration</option>
+								<option value="1:30">1:30</option>
+								<option value="2:30">2:30</option>
+								<option value="3:30">3:30</option>
+							</select></div>
+						</div>
+					</div>
+					<div class="row alternate-rate"><label for="Alternate Rate">Alternate Rate</label>
+
+						<div class="input select"><select name="Alternate Rate">
+							<option value="1">Alternate Rate1</option>
+							<option value="2">Alternate Rate2</option>
+							<option value="3">Alternate Rate3</option>
+						</select></div>
+					</div>
+					<div class="row slot-name"><label for="Slot">Slot</label>
+
+						<div class="input"><input type="text" id="Slot" placeholder="The slot will autofill"></div>
+					</div>
+					<div class="row est-cost"><label for="EST Cost">EST Cost</label>
+
+						<div class="input"><input type="text" id="EST Cost" placeholder="The price will autofill"></div>
+					</div>
+				</fieldset>
+			</div>
+			<div class="group">
+				<div class="vehicle-info box module">
+					<header><h2>Vehicle Information</h2></header>
+					<fieldset name="Vehicle Information" form="checkin" id="vehicle-info">
+						<div class="row"><label for="Vehicle Make ">Vehicle Make </label>
+
+							<div class="input select"><select name="Vehicle Make ">
+								<option value="1">Vehicle Make 1</option>
+								<option value="2">Vehicle Make 2</option>
+								<option value="3">Vehicle Make 3</option>
+							</select></div>
+						</div>
+						<div class="row"><label for="Model ">Model </label>
+
+							<div class="input select"><select name="Model ">
+								<option value="1">Model 1</option>
+								<option value="2">Model 2</option>
+								<option value="3">Model 3</option>
+							</select></div>
+						</div>
+						<div class="row"><label for="Year ">Year </label>
+
+							<div class="input select"><select name="Year ">
+								<option value="1">Year 1</option>
+								<option value="2">Year 2</option>
+								<option value="3">Year 3</option>
+							</select></div>
+						</div>
+						<div class="row"><label for="Color ">Color </label>
+
+							<div class="input select"><select name="Color ">
+								<option value="1">Color 1</option>
+								<option value="2">Color 2</option>
+								<option value="3">Color 3</option>
+							</select></div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="controls">
+					<button type="reset" name="reset" class="grey">Reset</button>
+					<button type="submit" name="submit" class="default">Complete Check In</button>
+				</div>
+			</div>
+		</section>
+	</form>
+</div>
+<footer></footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/app.js"></script>
+</html>

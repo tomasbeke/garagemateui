@@ -1,0 +1,108 @@
+
+.checkin-verification {
+    &{
+        text-align: center
+    }
+    .resstatus-list {
+        margin-bottom: 12px
+    }
+
+    .resstatus-list .resstatus-item:first-child {
+        border-top: 1px solid #ccc;
+    }
+
+     .resstatus-item {
+        display: block;
+        position: relative;
+        border-bottom: 1px solid #ccc;
+        line-height: 2rem;
+        padding-left: 0.375rem;
+        text-align: left;
+    }
+
+     .resstatus-item:hover {
+        background-color: #f3f3f3;
+    }
+
+     .checkin-error {
+        font-size: 1rem;
+        line-height: 1.8rem;
+        color: #ed9c28;
+        padding: 0.313rem 0.625rem;
+        margin: 0.625rem 0 1.250rem 0;
+        text-align: center;
+        background-color: #ffffee;
+        white-space: normal;
+        text-shadow: none;
+    }
+
+     h2 {
+        text-align: center
+    }
+
+     .vehicle-label:not(:empty)::after {
+        content: ","
+    }
+
+     .continue-reserve,  .resstatus-item .cancel-reserve,  .resstatus-item .select-reserve {
+        text-align: center;
+        border: 1px solid #ccc;
+        padding: 1px 0.313rem;
+        cursor: pointer;
+        line-height: 1.6;
+        position: relative;
+        background-color: #efefef;
+        display: none;
+        border-radius: 0.313rem;
+    }
+
+     .resstatus-item .act-links {
+        display: block;
+        color: red;
+        position: absolute;
+        right: 0.188rem;
+        top: 1px;
+    }
+
+     .resstatus-item .cancel-reserve {
+        color: red;
+    }
+
+     .resstatus-item .select-reserve {
+        color: green;
+    }
+
+     .resstatus-item.resstatus-item-RESERVED .cancel-reserve {
+        display: inline-block;
+    }
+
+     .checkin-mode .resstatus-item.resstatus-item-RESERVED.overlaps-active .select-reserve {
+        display: inline-block;
+    }
+
+     .resstatus-item-sched {
+        display: block;
+        padding-left: 1.563rem;
+    }
+
+     .continue-reserve {
+        display: inline-block;
+        color: green;
+    }
+
+
+
+     .hdr {
+        margin-bottom: 0.313rem;
+        text-align: center;
+    }
+
+     .noconflict-reserve {
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        margin: 0.625rem 0;
+        padding-bottom: 0.625rem;
+        background-color: @light-gray;
+    }
+
+}

@@ -1,0 +1,110 @@
+@header-height	:	35px;
+@app-assets	    :	"../app/theme/assets";
+@base-assets	:	"../theme/img";
+@light-blue	    :	#185799;
+@blue	        :	#164f8c;
+@dark-blue	    :	#14477d;
+@darker-blue	:	#134275;
+@splash-bg	    :	#0d2c58;
+@lighter-blue	:	#0066ff;
+@darkest-blue	:	#113963;
+@cheapest-color	:	#129612;
+@cheapest-color_bg	:	#129612;
+@best-color	    :	#6E78F4;
+@best-color_bg	:	#6E78F4;
+@closest-color	:	#EF8C19;
+@closest-color_bg	:	#EF8C19;
+@addtnl-color	:	#ccc;
+@light-gray	    :	#fafafa;
+@shaded-bg	    :	#fafafa;
+@baseFontSize	:	10;
+@darker-blue-color	:	blue;
+@ui-lighter     :#fefefe;
+@ui-darker      :#D5E2F4;
+@lighter-gray   :#f3f3f3;
+@ui-darkest     :#1b3856;
+@resizer-color  :#999;
+@border-color   :#ccc;
+@border-color-darker:#aaa;
+@border-color-lighter:#eee;
+@color-dim      :#999 ;
+@light-blue-color:#185799;
+@blue-color:#164f8c;
+@dark-blue-color:#14477d;
+@darker-blue-color:#134275;
+@lighter-blue-color:#0066ff;
+@hilite:rgba(213, 226, 244,.5);
+@hilite-cell:rgba(236, 236, 254,.3);
+@zebra-row:rgba(224, 223, 252, 0.3);
+@contentBg:#fff;
+.defbody(){background-color:#f8f8f8;background-image: url(../app/theme/assets/blueprint-dark.png);}
+.ui-ip(){
+
+}
+.body-color(){color:#000;}
+.defBg(){
+  background: #fcfcfc;
+  border-color:#333;
+}
+.defcontentBg(){  background: @contentBg; }
+.lite-gradient(){background: linear-gradient(to bottom, rgba(255,255,255,.2) 0%,rgba(229,229,229,.6) 100%);}
+.dark-gradient(){background: linear-gradient(to bottom, rgba(127,127,127,.2) 0%,rgba(225,225,225,.6) 100%)}
+.ui-lighterbg(){ background-color: @ui-darker}
+.ui-darkerbg(){ background-color:#185799;color:white;}
+.def-content-style(){background-color:#fff;}
+.row-style(){border-top: 1px solid #ccc;border-bottom: 1px solid #ccc; height:2em;line-height:1.6;}
+.def-popup-style(){ box-shadow:5px 5px 8px #111 ;border:1px solid #111; background-color:#fefefe}
+.def-popup-style-content(){background-color:#fafafa;border:1px solid #333;box-shadow:5px 5px 8px #111;}
+.def-section-header-style(){
+  background: linear-gradient(to bottom, #33373C 0%,   #657074 100%);
+}
+.def-section-style(){
+  background: linear-gradient(to bottom, #33373C 0%,   #657075 100%);
+}
+.button-style(){border:1px solid #ddd;color:#333;background:#ccc;}
+.input-disabled(){  color: #666;}
+.disabled-link(){background-color: rgba(220,220,220,.8) !important;color:#666 !important;}
+.faded-link(){background-color: #efefef;}
+.faded2-link(){background-color: #eee;}
+.hilite-link(){background-color: orange;}
+.elevated(){
+  background-color: #333;
+  border-radius: 3px;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,.8);
+  border: 1px solid #555;
+}
+.input(){background:#fefefe;}
+.selectable-selected(){
+  background: linear-gradient(to bottom, rgba(209,209,209,.3) 0%,rgba(209,209,209,.6) 100%)
+}
+.hoverable-hover(){color: #333;    cursor: default;     background-color: rgba(66,139,202,.4);    border-color: #428bca;}
+.layout-location-top(){border-bottom:1px solid #bbb}
+.overlay-box(){ border:1px solid #999}
+.h3(){border-bottom: 1px solid #eee; }
+.title(){ color: #333;
+  text-shadow: rgba(0, 0, 0, 0.2) -2px 2px 0, rgba(0, 0, 0, 0) -2px -2px 0, rgba(0, 0, 0, 0.2) 1px 1px 0;
+}
+.ui-button(){
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);   box-shadow: 0 1px 2px rgba(0,0,0,.2); background: #20282D;
+  background: linear-gradient(to bottom, #ccc 3%, #eee 51%, #ddd 100%);
+}
+.ui-button-selected(){background-position: 0 top;
+     color: #fff;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+.ui-button-hover(){color: #fff;
+  background: #4C5A64;
+  background:  linear-gradient(to bottom, #aaa 3%, #ddd 4%, #bbb 100%); }
+.box-shadow(){box-shadow: 2px 2px 2px #666;}
+
+.placeholder(){
+  font-size: 1.2rem; font-weight: 400;
+}
+.hoverable-hover(){color: #333;    cursor: default;     background-color: rgba(66,139,202,.4);    border-color: #428bca;}
+.list-item(){
+  display:block;padding:1px 0.125rem;border-bottom:1px solid #ccc;line-height:1.6;cursor:pointer;
+}
+.gFontImport (@name; @weights: 400; @subsets: latin) {
+  @nameEsc: ~`"@{name}".replace(/'([^']+)'/,'$1').replace(' ', '+')`;
+  @import url('http://fonts.googleapis.com/css?family=@{nameEsc}:@{weights}&subset=@{subsets}');
+}

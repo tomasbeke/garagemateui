@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html style="overflow: auto;" lang="en">
+  <head>
+    <title> Garagemate</title>
+    <link rel="icon" href="http://localhost:8095/favicon.ico" type="image/x-icon">
+    <meta  http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta  name="viewport" content="width=device-width, height=device-height initial-scale=1.0, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="ParcMate">
+    <meta name="application-name" content="ParcMate">
+
+    <script type="text/javascript" src="http://localhost:8080/parcmate_serv/appinit" > </script>
+    <link rel="stylesheet" type="text/css" href="theme/site.css" />
+     <link href="http://fonts.googleapis.com/css?family=Lato:100,200,300,400,700,900" rel="stylesheet" type="text/css">
+
+
+    <script type="text/javascript" src="js/application.55.js" > </script>
+    <script type="text/javascript" src="js/core.js" > </script>
+    <script type="text/javascript" src="js/workertemplate.js" > </script>
+    <script type="text/javascript">
+      document.cookie="x-protocol="+window.location.protocol+";expires=Thu, 31 Dec 2020 12:00:00 UTC";
+      window.addEventListener("load", function() { window.scrollTo(0, 0); });
+      //document.addEventListener("touchmove", function(e) { e.preventDefault() });
+      window.APPVERSION=".55" ;
+      $(
+        function() {
+          if(typeof(app)!='undefined'){
+            app.bootstrap("20151125-11","http://localhost:8095","","http://localhost:8080/parcmate_serv/router","http://localhost:8080/parcmate_serv/resources/libs")
+          } else {
+            alert("app not available")
+          }
+        }
+      );
+    </script>
+  </head>
+  <body class="theme-parcmate legacy-ui">
+    <div  class="page-content defBg static-header">
+	<div class="content-outer" style="opacity: 1;">
+
+	</div>
+	<!--<footer class="footer">
+		<a href="#">Copyright</a><a  href="#">About us</a><a   href="#">Privacy Policy</a><a href="#">Contact Us</a><a href="#">Partners</a><span>build:{BUILD}</span>
+	</footer>-->
+</div>
+    <iframe class="post-resp" style="height:1px;width:1px;position:fixed;left:-25px;" id="post-resp" name="post-resp" src=""></iframe>
+    <div class="debugicon" style="position:fixed;left:0;bottom:0;z-index:100;height:15px;width:10px;overflow:hidden;cursor:hidden;" onclick="Util.showErrors()">?</div>
+  </body>
+  <script type="text/javascript" src="http://localhost:8080/parcmate_serv/router?websocketio" > </script>
+  <script type="text/javascript" src="js/app.js" > </script>
+  
+  <!--
+  <div class="debugicon" style="display:none;z-index:100;position:fixed;bottom:3px;left:1px;height:15px;width:10px;" onclick="Util.fireBug.activate()">?</div111>
+  <script src='http://64.22.106.178/bugzy/service?client-script=bugzy-client&appkey=parcmate&ver=1'> </script>
+  -->
+</html>

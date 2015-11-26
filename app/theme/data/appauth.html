@@ -1,0 +1,19 @@
+<div class="app-auth">
+	<form class="app-auth-form" action="javascript:void(0)">
+		<br/>
+		<div> User Id</div>
+		<input type="text" class="app-auth-loginid"  placeholder="User id" autofocus="autofocus" name="auth_loginid" id="auth_loginid"   style="display:block;text-shadow:1px 1px 1px #ccc;background:white;border:1px solid #ccc;color:#333color:#333;padding:0 5px; font-size:1.2rem;line-height:2;width:16rem;border-radius:5px;"/>
+		<div> Password</div>
+		<input type="password" class="app-auth-pw" placeholder="Password"   name="auth_pw" id="auth_pw"   style="display:block;text-shadow:1px 1px 1px #ccc;background:white;border:1px solid #ccc;color:#333color:#333;padding:0 5px; font-size:1.2rem;line-height:2;width:16rem;border-radius:5px;"/>
+
+		<div id="login-msg" style="text-align:center;color:red;"></div>
+
+		<div style="text-align:right;margin-top:5px;padding-right:5px;clear:both;height:30px;">
+			<span style="float:left;" class="app-auth-forgot-pw">forgot password?</span>
+			<button class="app-auth-enter" type="submit" style="float:right;height: 1.8em;background:#f3f3f3; border: 2px solid #999; color: #333;padding: 1px 10px;color:#fff; background:#7AC548;border-color:#7AC548;" >Enter</button>
+		</div>
+		<div class="app-auth-acts" >
+			<span  class="app-auth-new-account" onclick="app.promptNewAccount()">Create New Account</span>
+		</div>
+	</form>
+</div>

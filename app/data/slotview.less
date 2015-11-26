@@ -1,0 +1,143 @@
+
+
+.slot-view {
+  .parking-slot{
+    width:3.750rem;height:3.750rem;float:left;border: 1px solid #999;margin:0.125rem;font-size:.7rem;text-align: center;display: inline-block;transition:background 1s ease;position:relative;
+
+    &:hover {
+      box-shadow: 1px 1px 3px #ccc;
+    }
+    .status-flag {
+      background-color: ivory;
+      border: 1px solid #000;
+      position: absolute;
+      right: -1px;
+      bottom: -1px;
+      height: 20px;;
+      width: 20px;
+      background-image: url("@{app-assets}/slot-av.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    &.current-state-1 .status-flag {
+      background-image: url("@{app-assets}/slot-not-av.png");
+
+    }
+    &.current-state-2 .status-flag {
+      background-image: url("@{app-assets}/slot-not-av.png");
+    }
+    &.current-state-0 .status-flag {
+    }
+    .slot-name {
+      font-size: .7rem;
+      height: 20px;
+      line-height: 20px;
+      white-space: nowrap;
+      color: #000
+    }
+    .slot-loc {
+      font-size: .9rem;
+      height: 20px;
+      line-height: 20px;
+      display: block;
+      color: #000
+    }
+
+    &.selected:before{
+      content:'\02713';color:green;position:absolute;left:-1px;bottom:-1px;border: 1px solid #ccc;line-height: 1;font-size:1.2rem;background-color: ivory;
+    }
+
+
+  }
+  .slot-stats {
+  }
+  .slot-stats span {
+    display: inline-block;
+    position: relative
+  }
+  .slot-stats span.lbl {
+    margin-left: 10px;
+    margin-right: 2px;
+    color: #bbb;
+  }
+  .group-list-wrap {
+    position: absolute;
+    top: 1px;
+    left: 5px;
+    width: 100px
+  }
+  .group-list-wrap select {
+    width: 50px
+  }
+
+  .slot-stats-filter {
+    display: block;
+    position: relative
+  }
+
+  .slot-list {
+    height: calc(~"100% - " 90px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .status-list-wrap {
+    display: block;
+    clear: both;
+    white-space: nowrap;
+    margin-left: 100px;
+  }
+  .status-list-wrap .status-item {
+    display: inline-block;
+    position: relative;
+    background-color: #eee;
+    padding: 0 10px 0 30px;
+    border-right: 1px solid #ccc;
+    line-height: 2;
+    background-position: left center;
+    background-repeat: no-repeat
+  }
+  .status-list-wrap .status-item-av {
+    background-image: url("@{app-assets}/slot-av.png");
+  }
+  .status-list-wrap .status-item-notav {
+    background-image: url("@{app-assets}/slot-not-av.png");
+  }
+  .status-list-wrap .status-item:first-child {
+    border-left: 1px solid #ccc;
+  }
+  .status-list-wrap .status-item.selected {
+    background-color: #fff;
+  }
+  .slot-stats .refresh-list {
+    position: absolute;
+    display: block;
+    margin-left: 10px;
+    min-width: 60px;
+    height: 32px;
+    top: 3px;
+    right: 30px;
+    overflow: hidden;
+    vertical-align: bottom;
+  }
+  .slot-stats .refresh-list .refresh-list-icon {
+    display: inline-block;
+    background: url("@{base-assets}/refresh-icon.png") no-repeat center;
+    width: 18px;
+    height: 32px;
+    cursor: pointer;
+    vertical-align: bottom;
+  }
+  .slot-stats .refresh-list .refresh-list-message {
+    display: inline-block;
+    margin-left: 5px;
+    text-align: left;
+    font-size: .7rem;
+    color: gray;
+    height: 32px;
+    line-height: 1.2;
+    white-space: nowrap;
+    vertical-align: bottom;
+  }
+
+}

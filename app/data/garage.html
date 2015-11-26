@@ -1,0 +1,42 @@
+<div  z-scope="garage">
+<header class="garage-hdr masthead">
+<div class="info">
+ <div class="info-part burger"><a href="#">menu</a></div>
+ <div class="info-part logo"><a href="dashboard">logo</a></div>
+ <div class="info-part weather">
+
+ </div>
+ <div class="clockbox">
+      <span class="month">{{currentdate.mmm}} </span><span class="day">{{currentdate.dd}}</span><span>,</span><span class="time"><span
+         class="hour">{{currentdate.hh}}</span><span>:</span><span class="minute">{{currentdate.nn}}</span><span
+         class="meridiem">{{currentdate.TT}}</span> </span>
+ </div>
+<div  class="facility-info"><div class="operatorname">{{operator}}</div> <span  class="facilityname">{{name}}</span></div>
+</div>
+ <nav>
+  <ul>
+   <li class="fxtx_25 dashboard" data-cmd="cmd_garagehome"><span class="icon"></span><span class="text">dashboard</span></li>
+   <li class="fxtx_25 checkin" data-cmd="cmd_garagecheckin"><span class="icon"></span><span   class="text">checkin</span></li>
+   <li class="fxtx_25 checkout"  data-cmd="cmd_garagecheckout"><span class="icon"></span><span class="text">checkout</span></li>
+   <li class="fxtx_25 pricing" data-cmd="cmd_garagepricing" > <span class="icon"></span><span class="text">pricing</span> </li>
+   <li class="fxtx_25 reports"  data-cmd="cmd_garagereports" ><span class="icon"></span><span class="text">Settings</span></li>
+   <li class="fxtx_25 browser"  data-cmd="cmd_garagebrowser" ><span class="icon"></span><span class="text">Browser</span></li>
+
+   <li class="fxtx_25 user"   z-onclick="useroptions" title="{{user.fullname}}"><span class="icon"></span><span class="text">{{user.fullname}}</span></li>
+
+   <li class="fxtx_25 search" data-cmd="cmd_garagesearch"><span class="icon"></span><span class="text">search</span></li>
+  </ul>
+  <div class="user-info">
+   <span class="user-name" >ver:{{user.appversion}}</span>
+    </div>
+ </nav>
+ </header>
+<section class="slots">
+ <div class="slot total"><span class="quantity">{{total}}</span><span class="name">Total Slots</span></div>
+ <div class="slot available"><span class="quantity">{{available}}</span><span class="name">Available Slots</span></div>
+ <div class="slot upcoming"><span class="quantity">{{upcoming}}</span><span class="name">Upcoming Reservations</span></div>
+ <div class="slot notifications"><span class="quantity">{{notification}}</span><span class="name">Notifications</span></div>
+ <div class="slot messages"><span class="quantity">0</span><span class="name">Messages</span></div>
+ <!--div.slot.auxillary--></section>
+
+</div>

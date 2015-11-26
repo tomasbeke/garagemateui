@@ -1,0 +1,116 @@
+
+
+
+<div class="garagecheckin container">
+ <form id="checkin" class="checkin-form">
+  <section class="checkin box">
+   <header><h2>Check-In</h2></header>
+   <div class="group">
+    <header class="headers"><h3>Member</h3>
+
+     <h3>Non-Member</h3></header>
+    <legend>Member</legend>
+
+    <fieldset  form="checkin" class="member module">
+     <img src="app/theme/assets/barcode-placeholder.png" width="100" height="100" class="check-in-scan bar-scan-img"   z-onclick="checkinscan">
+
+     <span>
+      or
+     </span>
+
+     <div class="input">
+      <div class="check-in-find-options">
+       <label><input class="user-search" type="checkbox" z-onchange="toggleusersearch"/> Search By Name</label>
+      </div>
+
+      <input class="check-in-find"  placeholder="Search For Reservations/users" type="search"/>
+      <button class="check-in-find-user-link" type="button" >Find</button>
+      <span class="searchcnt"   z-bind="searchcnt"></span>
+     </div>
+    </fieldset>
+    <legend>Non-Member</legend>
+    <fieldset form="checkin" class="non-member-checkin non-member module">
+     <div class="fields">
+      <div class="input select"><select class="plate_num_state" placeholder="State" z-bind="platenumstate" value="NY" z-options="stateOptions"><option value="">-states-</option></select>
+     </div>
+      <span>&mdash;</span>
+
+      <div class="input license-number"><input class="plate_num" type="text" placeholder="Enter License Plate" z-onkeyup="platenumkey"></div>
+      <button type="button" class="non-member-link default"  z-onclick="nonmembercheckin">Enter</button>
+     </div>
+    </fieldset>
+   </div>
+  </section>
+  <section class="check-in-info parking-vehicle-info  ">
+    <div class="parking-info box module">
+    <header><h2>Parking Information</h2></header>
+    <fieldset name="Parking Information" form="checkin">
+     <div class="nonmember-info">
+      <div class="row"><label>First Name</label><div class="input"><input  type="text" class="val user-firstname" z-bind="user.firstname" placeholder="First Name"/></div></div>
+      <div class="row"><label>Last Name</label><div class="input"><input  type="text" class="val user-lastname" z-bind="user.lastname" placeholder="Last Name"/></div></div>
+      <div class="row"><label>Email</label><div class="input"><input  type="text" class="val user-email" z-bind="user.email" placeholder="Email"/></div></div>
+      <div class="row"><label>Phone Num</label><div class="input"><input  type="text" class="val user-phonenumber" z-bind="user.phonenumber" placeholder="Phone number"/></div></div>
+     </div>
+
+     <div class="row license-plate"><label for="License Plate">License Plate</label>
+      <div class="input"><input type="text" id="License Plate" z-bind="vehicle_plate" class="vehicle-plate" placeholder="Select the license"></div>
+     </div>
+     <div class="row coupon"><label for="Coupon">Coupon</label>
+      <div class="input"><input type="text" id="Coupon" placeholder="Enter coupon code if available"></div>
+     </div>
+
+     <div class="row alternate-rate"><label for="AlternateRate">Alternate Rate</label>
+
+      <div class="input select"><select class="val" name="AlternateRate">
+       <option value="1">Alternate Rate1</option>
+       <option value="2">Alternate Rate2</option>
+       <option value="3">Alternate Rate3</option>
+      </select></div>
+     </div>
+
+     <div class="row"><label>Time In</label>
+      <div class="input" style="text-align: left;display:inline-block;">
+       <span   class="val" z-bind="schedule.reserveDateTime" z-format="hh:nn tt" style="width:12rem"></span>
+       <select class="val val-duration" value="1" z-bindto="schedule.duration" style="font-family:'open sans';padding:0 5px;width:5rem;border:  1px solid #ccc;"><option value="0.5">�</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option></select>
+       <select class="val val-duration-type" z-bindto="schedule.durationType"  style="padding:0 5px;width:10rem;border: 1px solid #ccc;"><option value="h" selected="selected">Hr(s)</option><option value="d">Day(s)</option><option value="m">Mnth(s)</option></select>
+      </div>
+   </div>
+     <div class="row"><label>EST Price</label><div class="input"><input class="val est_price val" readonly="readonly" z-format="currency" z-bind="reserveprice"/></div></div>
+     <div class="row"><label>Slot </label><div class="input"><input class="val checkin-slot" readonly="readonly" z-onclick="checkinslot" z-bind="reserveSlot.slotname"/></div></div>
+    </fieldset>
+   </div>
+   <div class="group">
+    <div class="vehicle-info box module">
+     <header>
+      <h2>Vehicle Information</h2></header>
+     <fieldset name="Vehicle Information" form="checkin" class="vehicle-info">
+      <div class="row"><label for="vehicle_make">Vehicle Make</label>
+       <div class="input select"><select class="val vehicle-make" z-bind="vehicle_make" name="vehicle_make"><option value="">-Make-</option></select></div>
+      </div>
+      <div class="row"><label for="vehicle_model">Model </label>
+
+       <div class="input select"><select class="val vehicle-model" z-bind="vehicle_model" name="vehicle_model"> </select></div>
+      </div>
+      <div class="row"><label for="vehicle_type">Vehicle Type</label>
+      <div class="input select"><select class="val vehicle-type" z-bind="vehicle_type" name="vehicle_type"><option  value="">-Type-</option><option value="sml">Small</option><option value="med">Medium</option><option  value="lrg">Large</option><option  value="suv">SUV</option><option  value="lux">Luxury</option><option  value="spr">Sports Car</option><option  value="exo">Exotic</option></select></div>
+    </div>
+      <div class="row"><label for="vehicle_year">Year </label>
+
+       <div class="input select"><select class="val vehicle-year" z-bind="vehicle_year" name="vehicle_year"> </select></div>
+      </div>
+      <div class="row"><label for="vehicle_color">Color </label>
+       <div class="input select"><select class="val vehicle-color" z-bind="vehicle_color" name="vehicle_color"> </select></div>
+      </div>
+      <div class="vehicle-widget-img" >
+       <img class="fxtx_5" z-src="{{vehicleimgpath}}" src="../app/theme/assets/defaultvehicle.png"/>
+       </div>
+     </fieldset>
+    </div>
+    <div class="controls">
+     <button type="button" name="reset" class="member-link-reset grey" z-onclick="doreset">Reset</button>
+     <button type="button" name="check-in-button" class="garage-link member-link-confirm default"  z-onclick="docheckin">Complete Check In</button>
+    </div>
+   </div>
+   </section>
+ </form>
+</div>

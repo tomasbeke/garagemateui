@@ -1,0 +1,50 @@
+
+<div class="reserve-card2">
+    <section  class="section-bg">
+        <img src="app/theme/assets/logo.jpg"/>
+    </section>
+    <div class="reserve-info">
+        <div class="reserve-hdr">
+            <span class="schedule-info-resstatusString"  z-bind="resstatusString"></span>
+            <span class="schedule-info-reservenum"  z-bind="reservenum"></span>
+        </div>
+        <div class="loc-map info-section">
+    </div>
+        <div class="user-bar-code">
+        </div>
+    <div class="schedule-info info-section">
+        <div class="schedule-info-startdate info-val"  z-bind="schedule.reserveDateTime"  z-format="dddd, mmm dd, yyyy, hh:nn tt" ></div>
+         <div><span class="schedule-info-duration info-val" z-bind="schedule.formattedDuration"></span>
+        </div>
+        <div class="running-time"><div class="running-time-slider"></div><div class="running-time-message"></div></div>
+    </div>
+    <div class="facility-info info-section">
+        <div class="garage-name  info-section-title" z-bind="facility.name" ></div>
+        <div><span class="info-val"  z-bind="operator.name"></span></div>
+        <div class="garage-address"  z-bind="facility.address"></div>
+        <span>Slot:</span><span class="info-val"  z-bind="reserveSlot.slotname"> </span>
+        <div class="facility-services-info info-section cf">
+            <h5>Extra/Premium Services</h5>
+            <ul class='srvc-items'>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="user-reserve-info info-section">
+        <div class="user-reserve-info-name  info-section-title" z-bind="user.fullname" ></div>
+         <div class="car-info">
+            <div><label>Model</label><span class="info-val vehicle-info-make"  z-bind="userVehicle.vehicle_make"></span><span class="info-val vehicle-info-model"  z-bind="userVehicle.vehicle_model"></span><span class="info-val vehicle-info-plate" z-bind="userVehicle.vehicle_year"></span><span class="info-val vehicle-info-color" z-bind="userVehicle.vehicle_color"></span></div>
+            <div><label>Plate</label><span class="info-val vehicle-info-plate" z-bind="userVehicle.vehicle_plate"></span></div>
+        </div>
+
+        <div class="rate-info">
+            Amount: <span class="rate-info-rate info-val" z-format="currency" z-bind="reserveprice"></span>
+            <span class="info-val"  z-bind="reserveslot.slotname"> </span>
+        </div>
+ </div>
+<div class="reserve-actions">
+
+</div>
+        </div>
+</div>

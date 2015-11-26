@@ -1,0 +1,70 @@
+
+.fav{
+
+	div.item{
+	padding:3px 5px;margin:0 3px;background-color: #ffffff;
+	color: @darker-blue;
+	position: relative;
+	font-size: 1.2rem;
+	min-height: 32px;
+	border-bottom: 1px solid #D5E2F4;
+	text-align: left;
+	
+	}
+	
+	div.item:hover, & div.item:hover .stats{
+	background-color: rgba(0,0,255,.3);
+	}
+	div.item .stats{
+	position: absolute;right:4px;top:1px;   line-height: 2.3;font-size: .8rem;color:#444;
+	background-color: #ffffff;padding-left:4px;
+	z-index: 1;
+	}
+	div.item .stats .fav-ind{
+	width:20px;height:30px;background: url( "@{app-assets}/fav_loc.png" ) center no-repeat;display: inline-block;opacity:.2;color:white;
+	}
+	div.item.typ1 .stats .fav-ind, & div.item.isfav1 .stats .fav-ind{
+	background-image: url("@{app-assets}/fav_loc.png");opacity:1;
+	}
+	.entry-schedule{font-size: .9rem;}
+	&-hdr{background-color: #f3f3fa;
+	text-align: right;
+	position: fixed;overflow: hidden;
+	top:@header-height;
+	width: 100%;
+	left: 0;
+	z-index: 5;
+	border-bottom: 1px solid #aaa;
+	box-shadow: 1px 2px 4px #ccc;
+	}
+	&-hdr, & .fav-hdr-shadow{height:40px;}
+	&-hdr .fav-hdr-tabs{position: absolute;bottom:0;left:0;height:auto;overflow:visible;clear: both;float: none;}
+	&-hdr  .fav-hdr-tabs label{
+	display: inline-block;color:#999;
+	font-size: 1.2rem;text-align: center;padding:0 1rem;border-right: 1px solid #999;float: left;cursor: pointer;
+	}
+	&-hdr label.selected{color:#000;
+	text-shadow: 1px 2px 3px #ccc;
+	}
+	&-hdr input{
+	position:absolute; right: 20px;top:5px;border:1px solid #ccc;width:60px;
+	}
+	&-hdr input:focus, &-hdr input.infocus{
+	background-color:white;border:1px solid #555;width:200px;
+	
+	}
+	div.item .map-toggle {display:inline-block;width:20px;margin-left:10px;font-size: 1.4rem;cursor: pointer;color: red;}
+	div.item.expanded .map-toggle{color: green;}
+	div.item.loaded .map-toggle{color: yellow;}
+	.map-toggle::after{content:'\0229A';font-size:2rem;}
+	
+	.expanded .hist-map{max-height:110px;height:110px;background-color:#f3f3f3;margin:1px 0 2px 0;opacity:1;}
+	&-link{opacity:.4;cursor: pointer}
+	.is-fav .fav-link{opacity:1}
+	&-link,.back-to-search-view-link{cursor: pointer}
+	@media (max-width: 600px) {
+	& .fav-hdr , .fav .fav-hdr-shadow{
+	height:65px;
+	}
+	}
+}

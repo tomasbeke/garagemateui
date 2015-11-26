@@ -1,0 +1,97 @@
+
+.app-notifications {
+  &-link {
+    position: absolute;
+    display: inline-block;
+    right: 25px;
+    top: 25px;
+    height: 25px;
+    width: 30px;
+    background: url("@{app-assets}/notifications-icon.png") no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+  &-count:empty{display: none;}
+
+  &-link .app-notifications-count {
+    position: absolute;
+    color: white;
+    font-size: .7rem;
+    top: -5px;
+    right: -5px;
+    height: 16px;
+    width: 16px;
+    line-height: 12px;
+    border-radius: 8px;
+    border: 2px solid white;
+    text-align: center;
+    background-color: red;
+  }
+  &-link .app-notifications-count.shrink {
+    font-size: .5rem;
+  }
+
+  &-view {
+    position: fixed;
+    top: @header-height;
+    right: 1px;
+    background: linear-gradient(to bottom, #E1E7EE 0%, #7BA3CE 100%) #185799;
+    width: 600px;
+    max-width: 80%;
+    box-shadow: -2px 2px 4px #ccc;
+    border:  1px solid #bbb;
+    min-height:calc(~"98vh -" @header-height);
+
+    .notification-opts{
+        position:absolute;right:3px;top:1px;height:30px;
+      .refresh{    vertical-align: top;display:inline-block;position:relative;height:30px;line-height:15px;background: url("@{base-assets}/refresh-icon.png") no-repeat center right;cursor: pointer;padding-right:30px;text-align:right;font-weight:100;font-size:1rem;
+        margin-left:5px}
+      .filter{    vertical-align: top;display:inline-block;position:relative;height:30px;line-height:30px;background: url("@{base-assets}/filter-icon.png") no-repeat center right;background-size:contain;cursor: pointer;padding-right:30px;text-align:right;font-weight:100;font-size:1rem;
+          margin-right:10px;
+      }
+
+    }
+
+   .notification-list {
+    height: calc(~"100% -" 40px);
+    overflow: auto;
+  }
+  .notification-list-wrap {
+    list-style-type: decimal;
+    position: relative;
+    padding-left: 2rem;
+  }
+  .notification-list-wrap li {
+    padding-left: 4px;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+  }
+   .notification-list-wrap li .notification-acts {
+    position: absolute;
+    right: 2px;
+    top: 0;
+  }
+   .notification-list-wrap li .noti-message {
+    font-size: .9rem;
+  }
+   .notification-list-wrap .isnottask .notification-acts {
+    display: none
+  }
+   .notification-list-wrap .assigned .notification-act[data-key='100'] {
+    color: #888
+  }
+   .notification-list-wrap li .noti-reserve-link {
+    color: blue;
+    cursor: pointer;
+  }
+  .notification-list-wrap li .notification-acts .notification-act {
+    display: inline-block;
+    border: 1px solid #aaa;
+    background-color: white;
+    padding: 1px 2px;
+    margin: 0 2px;
+    font-size: .7rem;
+    cursor: pointer;
+  }
+ }
+}

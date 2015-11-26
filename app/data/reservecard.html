@@ -1,0 +1,55 @@
+
+<div class="reserve-card">
+
+ <div class="schedule-info-reservenum"  z-bind="reservenum"></div>
+
+ <div class="schedule-info info-section">
+ <div class="blue_bar"   z-bind="schedule.reserveDate"></div>
+ <div class="info-val operator-name"  z-bind="operator.name"></div>
+ <div class="info-val"  z-bind="facility.name"></div>
+ <div class="garage-info-address info-val" >{{facility.address==facility.name?'':facility.address}}</div>
+ <div class="schedule-info-times">
+ <span class="schedule-info-starttime info-val" z-format="hh:nn tt"  z-bind="schedule.entry_time"></span>
+  <span class="rightarrow">&Rightarrow;</span><span class="rightarrow2"></span> <span class="schedule-info-starttime info-val"  z-format="hh:nn tt" z-bind="schedule.exit_time"></span>
+ </div>
+ <div class="info-val-label">Duration</div>
+ <div class="schedule-info-duration info-val"  z-bind="schedule.actualDuration"></div>
+
+ <div class="timerview">
+
+ </div>
+ </div>
+<div class="user-reserve-info info-section">
+ <div class="blue_bar">PRICING</div>
+ <label>DURATION</label><span class="info-val" z-bind="schedule.actualDuration"></span>
+ <label>COST</label><span class="info-val  pricing-val {{priceupdate==1?'refreshing':''}}" z-type="currency" z-bind="reservecost"></span>
+ <label>EXTRAS</label> <span class="info-val" z-type="currency" z-bind="extratotal"></span>
+ <label>PRESET TIP</label><span class="info-val" z-type="currency" z-bind="calctip"></span>
+ <label>PROMO/COUPON</label><span class="info-val" z-bindto="pricing.promocoupon"></span>
+ <label>ALTERNATE RATE</label><input  type="number" step=".25" class="info-val" z-bindto="manualprice" placeholder="Enter an alternate amount"/>
+
+ <!--<div class="user-reserve-info-name  info-section-title" z-bind="member.name" ></div>
+ <div class="car-img" >
+ </div>
+ <div class="car-info ">
+ <div><label>Model</label><span class="info-val vehicle-info-make"  z-bind="userVehicle.vehicle_make"></span></div>
+ <div><label>Plate</label><span class="info-val vehicle-info-plate" z-bind="userVehicle.vehicle_plate"></span></div>
+ <div><label>Year</label> <span class="info-val vehicle-info-plate" z-bind="userVehicle.vehicle_year"></span></div>
+ <div><label>Color</label><span class="info-val vehicle-info-color" z-bind="userVehicle.vehicle_color"></span></div>
+ </div>-->
+ <div class="payment-info info-section">
+ <div class="blue_bar final-amount">
+ <span class="lbl">Total</span><span class="gold val   pricing-val {{priceupdate==1?'refreshing':''}}" z-type="currency" z-bind="reserveprice"></span>
+ </div>
+<hr/>
+ <label for="non-member-payment-simulate" class="non-member-payment-simulate-label">Simulate Non Member</label><input type="checkbox" class="non-member-payment-simulate" id="non-member-payment-simulate"/>
+ <div class="fxtx make-final-payment">
+ <div class="blue_bar final-payment">
+ Make Payment
+ </div>
+ <img src="app/theme/assets/cc-images.png">
+ </div>
+ </div>
+
+ </div>
+</div>

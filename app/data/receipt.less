@@ -1,0 +1,42 @@
+
+.receipt{
+
+	&{border:1px solid #aaa;max-width: 100%;width: 450px;margin: 0 auto;background:#fff;position: relative;min-height: 100%;}
+	.info-val{ text-align:left;display: inline-block;white-space: nowrap}
+	.car-info div{display:block;text-align: left;}
+	.car-info div label{font-size:1.2rem;width:60px;text-align:left;display: inline-block;}
+	.info-section{ max-width:94%;margin: 2em auto;text-align: center;}
+	.schedule-info .info-val{display: block;text-align: center;}
+	.schedule-info-times .info-val{display: inline-block}
+	.operator-name{font-weight: bold}
+	input {font-size: 1.2rem;}
+	.info-section-title{
+	font-size:2rem;color:gold;background:#eee;border:1px solid #ddd
+	}
+	.info-val-label{text-align:center;}
+	.user-reserve-info label{width:50%;display: inline-block;text-align: left}
+	.user-reserve-info .info-val{width:47%;display: inline-block;text-align: right}
+	.schedule-info-reservenum{
+	position: absolute;
+	top:5px;color: #666;
+	right:10px;font-size:.9rem;
+	}
+	.schedule-info-duration{font-size: 1.5rem;font-weight: bold;}
+	.schedule-info-reservenum::before{content: "Reservation Number: "}
+	.schedule-info-times{margin:10px 0}
+	.schedule-info-times span{font-size: 2rem;font-weight: bold;height:2rem;line-height: 2rem;  vertical-align: text-bottom;}
+	.schedule-info-times .rightarrow{margin:0 0 0 10px;font-weight: bolder; font-size: 3.5rem; vertical-align: sub;background: transparent; }
+	.schedule-info-times .rightarrow2{margin:0 10px 0 -12px ;font-size: 3rem;  vertical-align: baseline;background: transparent;}
+	.final-amount .lbl{display: inline-block;width: 40%;text-align: left}
+	.final-amount .val{display: inline-block;width: 40%;text-align: right;}
+	.make-final-payment{max-height:0;height:auto;overflow: hidden}
+	.non-member-payment-simulate:checked ~ .make-final-payment{max-height:300px;}
+	.make-final-payment ,hr{clear:both;}
+	.payment-info .non-member-payment-simulate{float: right;}
+	.payment-info .non-member-payment-simulate-label{float: right;font-size:.8rem;width: auto; }
+	.user-reserve-info input{border:1px solid #ccc;}
+	.user-bar-code{max-width:94%;margin:20px auto 0 auto;display: block;position: relative;}
+	.section-bg{height: 40px;text-align: center;}
+	.section-bg img{height: 40px; vertical-align:middle;}
+	.reserve-info{position: relative;padding-top:10px;}
+}

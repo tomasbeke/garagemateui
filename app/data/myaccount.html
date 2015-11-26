@@ -1,0 +1,80 @@
+
+
+<form class="fit-vp-height myaccount">
+<div class="fxtx error-message"></div>
+    <h2>Basic Information</h2>
+<dl>
+    <div class="pic-wrap">
+    <img data-key="pic" style="height:90px;" src="{{pic}}"  class="user-pic">
+    <div  class='pic-bar' style='text-align: center'>
+       <button class='ui-button small smaller'  type='button' data-key='snap'>Snap</button>
+       <span class='for-upload-file' style='position:relative;overflow:hidden;'>
+                <button  class='ui-button small smaller'type='button' data-key='upload' style='z-index:1; '>Upload</button>
+                </span>
+    </div>
+    </div>
+    <dt> First Name </dt>
+    <dd>
+       <input required z-bindto="firstname"/>
+    </dd>
+    <dt> Middle Name </dt>
+    <dd>
+        <input   z-bindto="middlename"/>
+    </dd>
+    <dt> Last Name </dt>
+    <dd>
+        <input required z-bindto="lastname"/>
+    </dd>
+    <dt> Date of Birth </dt>
+    <dd>
+        <input type="date" z-bindto="dob"/>
+    </dd>
+    <dt> Email </dt>
+    <dd>
+        <input required type="email" z-bindto="email" value=""/>
+    </dd>
+    <dt> Phone Number </dt>
+    <dd>
+        <input type="phone" z-bindto="phonenumber" value=""/>
+    </dd>
+ </dl>
+<h2>Vehicles</h2>
+<dl class="vehicle-list">
+<dt> Primary Vehicle </dt>
+<dd class="user-vehicle">
+
+</dd>
+    <div class="add-more add-more-vehicle">[+]Add More</div>
+</dl>
+<h2>Account/Payment Information</h2>
+<dl>
+    <dt> Account Number </dt>
+    <dd>
+        <input z-bindto="account_num"value=""/>
+    </dd>
+    <h4>Credit Card 1 </h4>
+    <dt> Name on Card </dt>
+    <dd class="nameoncard">
+        <input z-bindto="firstname_on_card" value=""/> <input z-bind="lastname_on_card" value=""/>
+    </dd>
+    <dt> Card Number </dt>
+    <dd>
+        <input z-bindto="card_number" value=""/>
+    </dd>
+    <dt> Expiration Date</dt>
+    <dd class="expiration">
+        <input z-bindto="expiration_month"  placeholder="MM" pattern="[0-1][0-9]" style="width:3rem"/><input placeholder="YY"  pattern="[1-3][0-9]" z-bindto="expiration_year" style="width:3rem"/>
+    </dd>
+    <dt> Billing Address</dt>
+    <dd class="billingaddress">
+        <input z-bindto="billing_city" placeholder="city"  value=""/><input z-bindto="billing_state" placeholder="state"  value=""/><input z-bindto="billing_country" placeholder="country"  value=""/>
+        <input z-bindto="billing_zipcode" placeholder="zip" value=""/>
+    </dd>
+    <div class="add-more">[+]Add More</div>
+</dl>
+<div style="text-align: right"><a href="http://parcmate.com/pmr/Parcmate.apk" target="_blank">Deploy Android App</a></div>
+    <div style="text-align: center;margin-bottom: 20px;">
+    <button type="submit" class="save-account">Save</button>
+</div>
+
+</form>
